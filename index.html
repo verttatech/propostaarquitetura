@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Proposta comercial da verttatech para implantacao do TODA - plataforma de gestao para escritorios de arquitetura.">
+<meta name="author" content="verttatech">
+
+<!-- Proposta comercial: nao deve aparecer em buscadores -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Previa ao compartilhar no WhatsApp, LinkedIn, etc. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="verttatech">
+<meta property="og:title" content="TODA - Proposta de implantacao">
+<meta property="og:description" content="Gestao de escritorio, obra e cliente em uma unica plataforma. Proposta preparada para Todaka.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#C9A94F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23C9A94F'/%3E%3Cpath d='M6 7l10 18L26 7l-6 0-4 8-4-8z' fill='%2317181A'/%3E%3C/svg%3E">
+<title>Proposta TODA</title>
+
+<style>
+  /* ============================================================
+     TODA · verttatech — proposta comercial
+     Sistema: grid editorial suíço, entrelinha generosa,
+     numeração de seção em coluna lateral (convenção de prancha).
+     ============================================================ */
+
+  :root {
+    /* neutros de leve viés quente, para conviver com o dourado */
+    --paper:      #FBFAF6;
+    --card:       #FFFFFF;
+    --card-2:     #F5F2EA;
+    --ink:        #17181A;      /* preto do logotipo verttatech */
+    --ink-2:      #3D3E41;
+    --muted:      #6C6960;
+    --hair:       #E3DDCD;
+    --hair-soft:  #EEE9DD;
+
+    /* dourado verttatech */
+    --gold-lt:    #E4CE8C;      /* alta-luz do gradiente */
+    --gold:       #C9A94F;      /* dourado central, uso decorativo */
+    --gold-dp:    #A8863A;      /* sombra do gradiente */
+    --brand:      #7C6019;      /* dourado escurecido: seguro para texto no claro */
+    --brand-deep: #5E4812;
+    --brand-tint: #F8F2E0;
+
+    --band-bg:    #17181A;
+    --band-ink:   #FAF8F2;
+    --band-muted: #A6A29A;
+
+    /* capa: sempre dourada, em qualquer tema — é a marca */
+    --cover-grad: linear-gradient(135deg, #E7D399 0%, #C9A94F 46%, #A8863A 100%);
+    --cover-ink:  #17181A;
+    --cover-mid:  rgba(23,24,26,.66);
+    --cover-line: rgba(23,24,26,.22);
+
+    --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --gut: clamp(28px, 6vw, 76px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #0E0E0F;
+      --card:       #17171A;
+      --card-2:     #1E1E21;
+      --ink:        #F3F1EA;
+      --ink-2:      #D0CDC4;
+      --muted:      #918D83;
+      --hair:       #2C2C2F;
+      --hair-soft:  #212124;
+
+      --gold-lt:    #EFDCA6;
+      --gold:       #D6B461;
+      --gold-dp:    #B8964A;
+      --brand:      #D6B461;   /* dourado claro: seguro para texto no escuro */
+      --brand-deep: #EFDCA6;
+      --brand-tint: #241F12;
+
+      --band-bg:    #08080A;
+      --band-ink:   #F3F1EA;
+      --band-muted: #9E9A90;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #0E0E0F;
+    --card:       #17171A;
+    --card-2:     #1E1E21;
+    --ink:        #F3F1EA;
+    --ink-2:      #D0CDC4;
+    --muted:      #918D83;
+    --hair:       #2C2C2F;
+    --hair-soft:  #212124;
+
+    --gold-lt:    #EFDCA6;
+    --gold:       #D6B461;
+    --gold-dp:    #B8964A;
+    --brand:      #D6B461;
+    --brand-deep: #EFDCA6;
+    --brand-tint: #241F12;
+
+    --band-bg:    #08080A;
+    --band-ink:   #F3F1EA;
+    --band-muted: #9E9A90;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .sheet { max-width: 1000px; margin: 0 auto; padding: 0 var(--gut); }
+
+  /* ---------- utilitários tipográficos ---------- */
+  .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -.01em;
+  }
+
+  p { margin: 0; max-width: 64ch; }
+  .lede { font-size: clamp(18px, 2.2vw, 21px); line-height: 1.5; color: var(--ink-2); max-width: 40ch; }
+
+  /* ============ CAPA ============ */
+  .cover {
+    background: var(--cover-grad);
+    color: var(--cover-ink);
+    padding: clamp(48px, 9vw, 96px) 0 clamp(44px, 7vw, 76px);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute; inset: 0 0 auto 0; height: 6px;
+    background: var(--cover-ink);
+  }
+
+  .cover-inner { display: flex; flex-direction: column; gap: clamp(30px, 6vw, 60px); }
+
+  .cover-mark {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: .3em;
+    text-transform: lowercase;
+    color: var(--cover-ink);
+    font-weight: 600;
+  }
+
+  .wordmark {
+    font-size: clamp(76px, 20vw, 190px);
+    line-height: .82;
+    letter-spacing: -.055em;
+    font-weight: 700;
+    margin: 0;
+    color: var(--cover-ink);
+  }
+
+  .cover-claim {
+    font-size: clamp(19px, 2.8vw, 27px);
+    line-height: 1.32;
+    font-weight: 380;
+    letter-spacing: -.014em;
+    color: var(--cover-mid);
+    max-width: 22ch;
+    margin: clamp(20px, 3vw, 34px) 0 0;
+    text-wrap: balance;
+  }
+  .cover-claim b { color: var(--cover-ink); font-weight: 560; }
+
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    border-top: 1px solid var(--cover-line);
+    padding-top: 22px;
+  }
+  .meta-cell { flex: 1 1 140px; display: flex; flex-direction: column; gap: 5px; }
+  .meta-cell .label { color: var(--cover-mid); }
+  .meta-cell strong { font-size: 16px; font-weight: 560; letter-spacing: -.01em; color: var(--cover-ink); }
+  .client-name {
+    font-size: 19px !important;
+    font-weight: 680 !important;
+    letter-spacing: -.018em !important;
+  }
+
+  /* ============ SEÇÕES ============ */
+  main { padding: clamp(52px, 8vw, 92px) 0 0; display: flex; flex-direction: column; gap: clamp(52px, 8vw, 88px); }
+
+  .sec { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: clamp(18px, 3vw, 34px); }
+  .sec-mark { display: flex; flex-direction: column; gap: 9px; }
+  .sec-digit {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: .04em;
+  }
+  .sec-rule { height: 1px; background: var(--hair); margin-top: 3px; }
+  .sec-body { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+
+  h2 {
+    font-size: clamp(27px, 3.9vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -.028em;
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+
+  h3 { font-size: 17px; font-weight: 600; letter-spacing: -.012em; margin: 0; }
+
+  /* ---------- camadas ---------- */
+  .layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 2px; }
+  .layer {
+    background: var(--card);
+    border-top: 2px solid var(--gold);
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .layer .label { color: var(--brand); }
+  .layer p { font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+
+  /* ---------- destaque em faixa ---------- */
+  .pull {
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 22px;
+    font-size: clamp(18px, 2.3vw, 22px);
+    line-height: 1.42;
+    letter-spacing: -.014em;
+    color: var(--ink);
+    max-width: 34ch;
+    font-weight: 420;
+  }
+
+  /* ---------- lista de escopo ---------- */
+  .scope { display: flex; flex-direction: column; }
+  .scope-item {
+    display: grid;
+    grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+    gap: clamp(14px, 2.5vw, 30px);
+    padding: 20px 0;
+    border-top: 1px solid var(--hair-soft);
+    align-items: start;
+  }
+  .scope-item:last-child { border-bottom: 1px solid var(--hair-soft); }
+  .scope-item h3 { padding-top: 1px; }
+  .scope-item p { font-size: 15px; color: var(--ink-2); line-height: 1.58; }
+
+  /* ---------- preço ---------- */
+  .price-band {
+    background: var(--band-bg);
+    color: var(--band-ink);
+    padding: clamp(40px, 6vw, 62px) 0;
+    margin-top: 6px;
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+  }
+  .price-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(26px, 5vw, 56px); align-items: end; }
+  .price-figure { display: flex; flex-direction: column; gap: 10px; }
+  .price-figure .label { color: var(--band-muted); }
+  .price-value {
+    font-family: var(--mono);
+    font-size: clamp(36px, 6.2vw, 70px);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -.045em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .price-note { font-size: 14.5px; color: var(--band-muted); line-height: 1.5; max-width: 32ch; }
+  .price-cash {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ---------- comparativo de mercado ---------- */
+  .cmp { display: flex; flex-direction: column; }
+  .cmp-head {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--band-muted);
+    padding-bottom: 11px;
+    border-bottom: 1px solid rgba(255,255,255,.24);
+  }
+  .cmp-row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+  }
+  .cmp-who { font-size: 14.5px; color: var(--band-muted); line-height: 1.35; }
+  .cmp-who small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgba(255,255,255,.40);
+  }
+  .cmp-val {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .cmp-row.is-toda .cmp-who { color: var(--band-ink); font-weight: 600; }
+  .cmp-row.is-toda .cmp-who small { font-weight: 400; color: rgba(255,255,255,.52); }
+  .cmp-row.is-toda .cmp-val { color: var(--gold); }
+  .cmp-note {
+    font-size: 13.5px;
+    color: var(--band-muted);
+    line-height: 1.5;
+    margin-top: 18px;
+    max-width: 44ch;
+  }
+
+  /* ---------- tabelas ---------- */
+  .tbl-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; }
+  caption { text-align: left; }
+  th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: left;
+    padding: 0 16px 11px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  td {
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid var(--hair-soft);
+    vertical-align: top;
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  td:first-child { color: var(--ink); font-weight: 560; padding-right: 24px; }
+  th:last-child, td:last-child { text-align: right; padding-right: 0; }
+  td.v {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ---------- prazo ---------- */
+  .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2px; }
+  .tl {
+    background: var(--card);
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border-top: 1px solid var(--hair);
+  }
+  .tl-week { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; color: var(--brand); text-transform: uppercase; }
+  .tl h3 { font-size: 15.5px; }
+  .tl p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* ---------- nota lateral ---------- */
+  .aside {
+    background: var(--brand-tint);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .aside h3 { color: var(--brand-deep); font-size: 15.5px; }
+  .aside p { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+
+  /* ---------- próximos passos ---------- */
+  .next { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2px; }
+  .next-item { background: var(--card); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .next-item .sec-digit { font-size: 12px; }
+  .next-item p { font-size: 14.5px; color: var(--ink-2); line-height: 1.52; }
+
+  /* ---------- rodapé ---------- */
+  footer {
+    margin-top: clamp(58px, 9vw, 96px);
+    border-top: 1px solid var(--hair);
+    padding: 30px 0 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .foot-brand { display: flex; flex-direction: column; gap: 5px; }
+  .foot-word { font-size: 28px; font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+  .foot-by { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; color: var(--brand); }
+  .foot-meta { font-size: 13px; color: var(--muted); text-align: right; line-height: 1.6; }
+
+  /* ---------- controle de tema ---------- */
+  .tools { position: fixed; top: 14px; right: 14px; z-index: 20; display: flex; gap: 8px; }
+  .tbtn {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    background: var(--card);
+    color: var(--muted);
+    border: 1px solid var(--hair);
+    border-radius: 5px;
+    padding: 8px 11px;
+    cursor: pointer;
+  }
+  .tbtn:hover { color: var(--ink); border-color: var(--brand); }
+  .tbtn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  @media (max-width: 660px) {
+    .sec { grid-template-columns: 1fr; gap: 14px; }
+    .sec-rule { display: none; }
+    .scope-item { grid-template-columns: 1fr; gap: 6px; }
+    .price-grid { grid-template-columns: 1fr; align-items: start; }
+    .tools { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  /* ============ IMPRESSÃO ============ */
+  @media print {
+    @page { size: A4; margin: 16mm 14mm; }
+    :root {
+      --paper: #FFFFFF; --card: #FFFFFF; --card-2: #F5F2EA;
+      --ink: #17181A; --ink-2: #3A3B3E; --muted: #6F6C64;
+      --hair: #D6CFBC; --hair-soft: #E6E0D2;
+      --gold: #C9A94F; --gold-lt: #E4CE8C; --gold-dp: #A8863A;
+      --brand: #6F5615; --brand-deep: #55420F; --brand-tint: #F8F2E0;
+      --band-bg: #17181A; --band-ink: #FFFFFF; --band-muted: #B4B0A6;
+    }
+    body { font-size: 10.5pt; line-height: 1.5; background: #fff; }
+    .sheet { max-width: none; padding: 0; }
+    .tools { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover { padding: 34mm 14mm; page-break-after: always; }
+    .cover .sheet { padding: 0; }
+    .wordmark { font-size: 58pt; }
+    .cover-claim { font-size: 15pt; }
+    main { padding-top: 0; gap: 13mm; }
+    .sec { page-break-inside: avoid; }
+    h2 { font-size: 17pt; }
+    .price-band { padding: 10mm 14mm; margin: 0 -14mm; page-break-inside: avoid; }
+    .price-value { font-size: 30pt; white-space: nowrap; }
+    .scope-item, .layer, .tl, .next-item, tr, .cmp-row { page-break-inside: avoid; }
+    footer { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <button class="tbtn" id="themeBtn" type="button">Tema</button>
+  <button class="tbtn" id="printBtn" type="button">Salvar PDF</button>
+</div>
+
+<!-- ================= CAPA ================= -->
+<header class="cover">
+  <div class="sheet cover-inner">
+    <span class="cover-mark">verttatech</span>
+
+    <div>
+      <h1 class="wordmark">TODA</h1>
+      <p class="cover-claim">
+        A gestão do escritório, o andamento da obra e a experiência do seu cliente
+        <b>em uma única plataforma.</b>
+      </p>
+    </div>
+
+    <div class="cover-meta">
+      <div class="meta-cell">
+        <span class="label">Preparado para</span>
+        <strong class="client-name">Todaka</strong>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Documento</span>
+        <strong>Proposta de implantação</strong>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Data</span>
+        <strong class="num">Agosto de 2026</strong>
+      </div>
+      <div class="meta-cell">
+        <span class="label">Validade</span>
+        <strong class="num">30 dias</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <!-- ---------- 01 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">01</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>A operação está espalhada em ferramentas que não conversam</h2>
+      <p class="lede">
+        Planilha para o financeiro, WhatsApp para cliente e fornecedor, aplicativo de tarefas
+        para a equipe, e-mail para documentos.
+      </p>
+      <p>
+        O custo disso raramente aparece na conta do mês, mas está em toda parte: a informação
+        que precisa ser digitada três vezes, a decisão aprovada por áudio que ninguém encontra
+        seis meses depois, o projeto que só no fim revela ter dado prejuízo. E, do outro lado,
+        um cliente que precisa ligar para saber como está a própria obra.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- 02 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">02</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>O TODA organiza isso em três camadas</h2>
+
+      <div class="layers">
+        <article class="layer">
+          <span class="label">Camada 01</span>
+          <h3>Escritório</h3>
+          <p>Clientes, projetos, equipe e financeiro reunidos, com a informação entrando uma
+             única vez e circulando sozinha.</p>
+        </article>
+        <article class="layer">
+          <span class="label">Camada 02</span>
+          <h3>Obra</h3>
+          <p>Cronograma, etapas concluídas, fotos e ocorrências registradas conforme a obra
+             acontece, direto do celular.</p>
+        </article>
+        <article class="layer">
+          <span class="label">Camada 03</span>
+          <h3>Cliente</h3>
+          <p>Um portal elegante onde ele acompanha a evolução, aprova decisões e consulta
+             pagamentos, sem precisar telefonar.</p>
+        </article>
+      </div>
+
+      <p class="pull">
+        O portal é seu. Seu cliente vê o seu logotipo, as suas cores e o seu endereço —
+        nunca o nome TODA.
+      </p>
+
+      <p>
+        É a terceira camada que muda a percepção do seu trabalho. Enquanto a maioria dos
+        escritórios envia fotos soltas por mensagem, o seu entrega um acompanhamento
+        organizado, com a sua identidade, que o cliente abre no celular quando quiser e
+        mostra para quem quiser.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- 03 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">03</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>O que será implantado</h2>
+      <p>
+        Esta proposta entrega à Todaka o núcleo da plataforma e o portal do cliente — a base
+        sobre a qual todo o restante é construído, sem retrabalho.
+      </p>
+
+      <div class="scope">
+        <div class="scope-item">
+          <h3>Base da plataforma</h3>
+          <p>Acesso por usuário com perfis de permissão, e a identidade visual do escritório
+             aplicada a toda a interface: logotipo, cores e endereço próprio.</p>
+        </div>
+        <div class="scope-item">
+          <h3>Clientes e projetos</h3>
+          <p>Cadastro completo com dados do projeto, anexos, responsáveis e histórico de tudo
+             que aconteceu, pesquisável.</p>
+        </div>
+        <div class="scope-item">
+          <h3>Obra</h3>
+          <p>Etapas do cronograma com percentual de conclusão e envio de fotos por etapa,
+             feito do celular durante a visita.</p>
+        </div>
+        <div class="scope-item">
+          <h3>Portal do cliente</h3>
+          <p>Evolução da obra, galeria de fotos, próximas etapas, documentos, aprovações
+             pendentes e comunicados. Tudo com a marca do escritório.</p>
+        </div>
+        <div class="scope-item">
+          <h3>Financeiro do cliente</h3>
+          <p>Parcelas do contrato, o que já foi pago, próximo vencimento e saldo — visíveis
+             para o escritório e para o cliente, sem cobrança constrangedora.</p>
+        </div>
+        <div class="scope-item">
+          <h3>Implantação</h3>
+          <p>Migração dos dados atuais, treinamento da equipe em duas sessões e acompanhamento
+             próximo durante o primeiro mês de uso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ---------- 04 · PREÇO ---------- -->
+<section class="price-band">
+  <div class="sheet">
+    <div class="price-grid">
+      <div class="price-figure">
+        <span class="label">04 · Investimento de implantação</span>
+        <span class="price-value">R$ 25.000</span>
+        <span class="price-cash">Valor à vista</span>
+        <p class="price-note">
+          Núcleo da plataforma e portal do cliente, com a identidade visual do escritório
+          aplicada e a equipe treinada. Pagamento único, sem mensalidade obrigatória
+          depois da entrega.
+        </p>
+      </div>
+
+      <div class="cmp">
+        <div class="cmp-head">O mesmo escopo, no mercado</div>
+
+        <div class="cmp-row">
+          <span class="cmp-who">
+            Fábrica de software
+            <small>R$ 120 a R$ 280 a hora · 12 a 16 semanas · construção do zero</small>
+          </span>
+          <span class="cmp-val">R$ 40.000 – 100.000</span>
+        </div>
+
+        <div class="cmp-row">
+          <span class="cmp-who">
+            Desenvolvedor autônomo
+            <small>R$ 50 a R$ 150 a hora · sem equipe, sem garantia de continuidade</small>
+          </span>
+          <span class="cmp-val">R$ 25.000 – 60.000</span>
+        </div>
+
+        <div class="cmp-row is-toda">
+          <span class="cmp-who">
+            TODA · verttatech
+            <small>Plataforma já construída · 10 semanas até estar em operação</small>
+          </span>
+          <span class="cmp-val">R$ 25.000</span>
+        </div>
+
+        <p class="cmp-note">
+          A diferença não é desconto. O TODA já existe: a Todaka paga a implantação de uma
+          plataforma pronta e testada, não os meses que alguém levaria para construí-la
+          do zero.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="sheet" style="padding-top:clamp(52px,8vw,88px)">
+
+  <!-- ---------- 05 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">05</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>Dois a três meses até estar em operação</h2>
+
+      <div class="timeline">
+        <div class="tl">
+          <span class="tl-week">Semanas 1–2</span>
+          <h3>Descoberta</h3>
+          <p>Mapeamento do processo do escritório e coleta da identidade visual.</p>
+        </div>
+        <div class="tl">
+          <span class="tl-week">Semanas 3–7</span>
+          <h3>Construção</h3>
+          <p>Desenvolvimento com demonstração quinzenal do que ficou pronto.</p>
+        </div>
+        <div class="tl">
+          <span class="tl-week">Semanas 8–10</span>
+          <h3>Implantação</h3>
+          <p>Migração dos dados, treinamento e entrada em operação real.</p>
+        </div>
+        <div class="tl">
+          <span class="tl-week">Mês seguinte</span>
+          <h3>Acompanhamento</h3>
+          <p>Ajustes finos com base no uso e correção sem custo.</p>
+        </div>
+      </div>
+
+      <p>
+        As reuniões de acompanhamento são quinzenais e sempre com o sistema na tela. Você não
+        espera meses para ver resultado — acompanha a construção enquanto ela acontece e ajusta
+        as prioridades pelo caminho.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- 06 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">06</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>Como o TODA cresce depois</h2>
+      <p>
+        Os módulos abaixo já estão previstos na arquitetura da plataforma e podem ser
+        contratados quando fizerem sentido, sem refazer nada do que foi construído.
+        <strong>Estes valores ficam garantidos por 24 meses.</strong>
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Módulo</th><th>O que acrescenta</th><th>Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Comercial</td>
+              <td>Funil de vendas, propostas com cálculo automático e contratos com assinatura eletrônica</td>
+              <td class="v">R$ 15.000</td>
+            </tr>
+            <tr>
+              <td>Financeiro</td>
+              <td>Contas a pagar e receber, fluxo de caixa, controle de horas e margem real por projeto</td>
+              <td class="v">R$ 14.000</td>
+            </tr>
+            <tr>
+              <td>Obra completa</td>
+              <td>Diário de obra, ocorrências, medições e follow-up de fornecedores</td>
+              <td class="v">R$ 12.000</td>
+            </tr>
+            <tr>
+              <td>Inteligência artificial</td>
+              <td>Ata automática de reunião que já cria as tarefas, e assistente que responde sobre os dados do escritório</td>
+              <td class="v">R$ 12.000</td>
+            </tr>
+            <tr>
+              <td>Suprimentos</td>
+              <td>Cadastro de fornecedores, cotações comparadas e fluxo de compras</td>
+              <td class="v">R$ 10.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pull">
+        Começar pelo núcleo faz o escritório operar em semanas. O uso real mostra quais módulos
+        valem a pena — e a ordem passa a ser sua.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- 07 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">07</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>Depois da entrega, o TODA é da Todaka</h2>
+      <p>
+        Esta proposta vende o aplicativo, não o direito de usá-lo por mês. Entregue o sistema,
+        ele roda em servidor do próprio escritório, com os dados no nome da Todaka. Não há
+        mensalidade obrigatória, não há limite de usuários e nada deixa de funcionar se a
+        verttatech sair de cena.
+      </p>
+
+      <p class="pull">
+        Você não aluga o TODA. Ele passa a ser parte da estrutura do escritório.
+      </p>
+
+      <h3>Servidor: contratado e pago pela Todaka</h3>
+      <p>
+        A verttatech configura o servidor, instala o sistema e deixa backup diário, certificado
+        de segurança e monitoramento funcionando — mas a contratação e a conta são do escritório,
+        direto com o provedor. Hoje um servidor dedicado em São Paulo com folga para a operação
+        custa entre <strong>R$ 150 e R$ 300 por mês</strong>, e é o único custo fixo do sistema.
+        Nada passa pela verttatech: nenhuma margem embutida em infraestrutura.
+      </p>
+
+      <h3>Manutenção: só se quiser seguir acompanhado</h3>
+      <p>
+        O primeiro mês de acompanhamento já está incluído no valor da implantação. Depois desse
+        prazo, se a Todaka preferir manter a verttatech por perto, existem dois planos — que
+        podem ser contratados, pausados ou retomados a qualquer momento, sem fidelidade.
+      </p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Plano de manutenção</th><th>O que inclui</th><th>Por mês</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Essencial</td>
+              <td>Monitoramento do servidor, conferência do backup, atualizações de segurança, correção de falhas e suporte em horário comercial</td>
+              <td class="v">R$ 750</td>
+            </tr>
+            <tr>
+              <td>Completo</td>
+              <td>Tudo do Essencial, mais 4 horas mensais para ajustes e novos relatórios, com prioridade no atendimento</td>
+              <td class="v">R$ 1.650</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="aside">
+        <h3>Seus dados não saem do Brasil</h3>
+        <p>
+          O servidor fica em São Paulo, contratado em nome da Todaka. Além de deixar o sistema
+          mais rápido para quem usa, isso simplifica a adequação à LGPD: como não há
+          transferência internacional de dados, as exigências adicionais que a lei impõe nesse
+          caso simplesmente não se aplicam.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- 08 ---------- -->
+  <section class="sec">
+    <div class="sec-mark"><span class="sec-digit">08</span><div class="sec-rule"></div></div>
+    <div class="sec-body">
+      <h2>Próximos passos</h2>
+
+      <div class="next">
+        <div class="next-item">
+          <span class="sec-digit">01</span>
+          <p>Uma conversa de alinhamento para revisar o escopo e ajustar prioridades.</p>
+        </div>
+        <div class="next-item">
+          <span class="sec-digit">02</span>
+          <p>Aceite desta proposta e formalização do contrato.</p>
+        </div>
+        <div class="next-item">
+          <span class="sec-digit">03</span>
+          <p>Coleta da identidade visual e dos dados a migrar.</p>
+        </div>
+        <div class="next-item">
+          <span class="sec-digit">04</span>
+          <p>Início do desenvolvimento, com demonstração quinzenal.</p>
+        </div>
+      </div>
+
+      <p>
+        Esta proposta é válida por 30 dias. Qualquer ponto do escopo pode ser revisto antes do
+        aceite — se algo aqui não corresponde ao que a Todaka precisa, é melhor descobrir
+        agora do que na entrega.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-brand">
+      <span class="foot-by">verttatech</span>
+      <span class="foot-word">TODA</span>
+    </div>
+    <div class="foot-meta">
+      Proposta de implantação · Agosto de 2026<br>
+      Válida por 30 dias a partir da emissão
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    "use strict";
+    document.getElementById("themeBtn").addEventListener("click", function () {
+      var root = document.documentElement;
+      var cur = root.getAttribute("data-theme");
+      if (!cur) {
+        cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+    });
+    document.getElementById("printBtn").addEventListener("click", function () {
+      window.print();
+    });
+  })();
+</script>
+</body>
+</html>
