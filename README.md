@@ -2,11 +2,18 @@
 
 Pacote pronto para publicar a proposta comercial em domínio próprio.
 
+A página é um **orçamento interativo**: a cliente marca as telas que quer agora e vê o
+total, a economia, o prazo e as parcelas se atualizarem na hora. As trinta e quatro telas
+já construídas entram sem cobrança; o cardápio lista apenas as vinte que ainda serão
+feitas.
+
 ## Arquivos
 
 | Arquivo | Função |
 |---|---|
-| `index.html` | A proposta completa, autocontida (CSS e JS embutidos, sem dependência externa) |
+| `orcamento-toda.html` | **Arquivo de trabalho** — é aqui que se edita o conteúdo e os preços |
+| `index.html` | Gerado pelo `build.sh`: a página autocontida (CSS e JS embutidos, sem dependência externa) |
+| `build.sh` | Embrulha o arquivo de trabalho com o `<head>` (meta tags, favicon, prévia de compartilhamento) |
 | `Dockerfile` | Imagem nginx alpine servindo o HTML |
 | `nginx.conf` | Compressão, cabeçalhos de segurança e cache controlado |
 | `robots.txt` | Bloqueia indexação por buscadores |
@@ -105,16 +112,30 @@ O cliente recebe o link junto com as credenciais.
 
 ## Atualizar a proposta depois
 
-1. Edite `saas-arquitetura/proposta-toda.html` (é o arquivo de trabalho)
+1. Edite `orcamento-toda.html` (é o arquivo de trabalho, dentro deste próprio repositório)
 2. Regere o `index.html` autocontido:
 
 ```bash
-cd C:/Users/lucas/Documents/github/saas-arquitetura
-bash deploy/build.sh
+bash build.sh
 ```
 
 3. `git add . && git commit -m "ajuste" && git push`
 4. No EasyPanel, clique em **Deploy** no serviço
+
+### Mexer nos preços
+
+Cada tela é um `<label class="item">` com os atributos que mandam na conta:
+
+| Atributo | O que faz |
+|---|---|
+| `data-tab` | Preço de tabela, o valor riscado |
+| `data-preco` | Preço cobrado, já com os 30% |
+| `data-ess="1"` | Marca a tela como essencial: vem selecionada e entra no atalho "Só o essencial" |
+| `checked` | Deixa a tela pré-selecionada ao abrir a página |
+
+O total, a economia, o prazo e as parcelas são calculados a partir desses atributos —
+não existe nenhum valor fixo no JavaScript. Depois de mexer, rode `bash build.sh`
+de novo.
 
 ---
 
@@ -124,7 +145,11 @@ Depois de publicado, confira:
 
 - [ ] `https://proposta.seudominio.com.br` abre com o cadeado de segurança
 - [ ] A capa aparece dourada com TODA em preto
-- [ ] "Preparado para Todaka" está na capa
-- [ ] O botão **Salvar PDF** gera o A4 corretamente
+- [ ] A barra de total fica fixa no rodapé e acompanha a rolagem
+- [ ] Marcar e desmarcar uma tela muda o total na hora
+- [ ] O atalho **Só o essencial** deixa oito telas marcadas, somando R$ 29.400
+- [ ] O atalho **Selecionar tudo** soma R$ 107.000
+- [ ] Desmarcar parte do grupo de assinaturas faz aparecer o aviso âmbar
+- [ ] O botão **Salvar PDF** gera o A4 só com as telas marcadas
 - [ ] No celular, o layout não rola para os lados
 - [ ] `https://proposta.seudominio.com.br/robots.txt` responde com `Disallow: /`

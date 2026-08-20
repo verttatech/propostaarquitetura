@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Regenera deploy/index.html (autocontido) a partir de proposta-toda.html
-# Uso:  bash deploy/build.sh     (a partir da pasta saas-arquitetura)
+# Regenera index.html (autocontido) a partir de orcamento-toda.html.
+# Uso:  bash build.sh     (a partir da raiz do repositório)
 set -euo pipefail
 
-RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ORIGEM="$RAIZ/proposta-toda.html"
-DESTINO="$RAIZ/deploy/index.html"
+RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ORIGEM="$RAIZ/orcamento-toda.html"
+DESTINO="$RAIZ/index.html"
 
 [ -f "$ORIGEM" ] || { echo "erro: não encontrei $ORIGEM"; exit 1; }
 
-# Localiza o fim do bloco <style> para dividir head e body
+# Divide o arquivo no fim do bloco <style>: o que vem antes vai para o <head>.
 FIM_STYLE="$(grep -n '^</style>' "$ORIGEM" | head -1 | cut -d: -f1)"
 [ -n "$FIM_STYLE" ] || { echo "erro: não encontrei </style> em $ORIGEM"; exit 1; }
 
@@ -20,7 +20,7 @@ FIM_STYLE="$(grep -n '^</style>' "$ORIGEM" | head -1 | cut -d: -f1)"
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Proposta comercial da verttatech para implantacao do TODA - plataforma de gestao para escritorios de arquitetura.">
+<meta name="description" content="Monte o seu TODA: escolha as telas que quer agora e veja o investimento na hora. Proposta da verttatech para a Todaka.">
 <meta name="author" content="verttatech">
 
 <!-- Proposta comercial: nao deve aparecer em buscadores -->
@@ -29,8 +29,8 @@ FIM_STYLE="$(grep -n '^</style>' "$ORIGEM" | head -1 | cut -d: -f1)"
 <!-- Previa ao compartilhar no WhatsApp, LinkedIn, etc. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="verttatech">
-<meta property="og:title" content="TODA - Proposta de implantacao">
-<meta property="og:description" content="Gestao de escritorio, obra e cliente em uma unica plataforma. Proposta preparada para Todaka.">
+<meta property="og:title" content="TODA - Monte o seu orcamento">
+<meta property="og:description" content="Marque as telas que voce quer agora e veja o valor, o prazo e as parcelas na hora.">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
 
