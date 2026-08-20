@@ -122,6 +122,25 @@ bash build.sh
 3. `git add . && git commit -m "ajuste" && git push`
 4. No EasyPanel, clique em **Deploy** no serviço
 
+### O link da escolha
+
+Quando a cliente marca as telas, a seleção é gravada no próprio endereço da página
+(`.../#s=venda,cadastro,contrato`). Isso faz três coisas:
+
+- **Ela pode repassar.** O botão *Copiar o link da escolha* devolve um endereço que abre
+  com exatamente as mesmas telas marcadas — serve para ela mandar ao sócio antes de
+  decidir, ou para devolver a você já fechado.
+- **O WhatsApp sai pronto.** O botão *Enviar no WhatsApp* abre o aplicativo com a lista
+  das telas, o total, as parcelas, o prazo e o link, tudo formatado.
+- **O PDF é o documento.** *Salvar em PDF* imprime só as telas escolhidas mais o resumo
+  com data, prazo, parcelas e validade — os controles somem na impressão.
+
+Nada disso precisa de servidor: é tudo no navegador dela. Por isso o link também funciona
+se você mandar para outra pessoa.
+
+> Os identificadores usados no link são os `data-id` de cada tela. Se você renomear um
+> deles, os links antigos deixam de reconhecer aquela tela — mude só se precisar.
+
 ### Mexer nos preços
 
 Cada tela é um `<label class="item">` com os atributos que mandam na conta:

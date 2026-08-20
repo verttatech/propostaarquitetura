@@ -180,13 +180,46 @@
   @media (max-width:640px){ .tools{ display:none; } }
   @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
 
+
+  /* documento gerado */
+  .doc-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:10px;
+              border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:16px; }
+  .doc-head h3 { font-size:19px; letter-spacing:-.015em; }
+  .doc-data { font-family:var(--mono); font-size:12px; color:var(--muted); margin-left:auto; }
+  .doc-rodape { margin-top:16px; padding-top:14px; border-top:1px solid var(--hair-soft);
+                display:flex; flex-direction:column; gap:6px; }
+  .doc-linha { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px;
+               font-size:14px; color:var(--muted); }
+  .doc-linha span:last-child { font-family:var(--mono); font-variant-numeric:tabular-nums;
+                               color:var(--ink-2); font-weight:600; }
+
+  /* ações */
+  .acoes { display:flex; flex-wrap:wrap; gap:10px; }
+  .botao { display:inline-flex; align-items:center; gap:8px; font-family:var(--sans);
+           font-size:14.5px; font-weight:640; border-radius:10px; padding:12px 20px;
+           cursor:pointer; border:1px solid var(--hair); background:var(--card);
+           color:var(--ink); text-decoration:none; }
+  .botao:hover { border-color:var(--brand); color:var(--brand); }
+  .botao:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+  .botao.forte { background:var(--ink); border-color:var(--ink); color:var(--paper); }
+  .botao.forte:hover { opacity:.88; color:var(--paper); }
+  .botao[aria-disabled="true"] { opacity:.45; pointer-events:none; }
+
+  .linkbox { width:100%; font-family:var(--mono); font-size:12.5px; color:var(--ink-2);
+             background:var(--card-2); border:1px solid var(--hair); border-radius:8px;
+             padding:11px 13px; margin-top:4px; }
+  .linkbox:focus { outline:2px solid var(--brand); outline-offset:1px; }
+  .dica { font-size:13.5px; color:var(--muted); }
+  .ok-msg { font-size:13.5px; color:var(--ok); font-weight:620; display:none; }
+  .ok-msg.on { display:block; }
+
   @media print {
     @page { size:A4; margin:14mm 12mm; }
     :root{ --paper:#fff; --card:#fff; --ink:#17181A; --ink-2:#3A3B3E; --muted:#6F6C64;
            --hair:#D6CFBC; --hair-soft:#E6E0D2; --gold:#C9A94F; --brand:#6F5615;
            --brand-deep:#55420F; --brand-tint:#F8F2E0; --ok:#1B6B45; --ok-bg:#E4F1EA; }
     body{ font-size:10pt; padding-bottom:0; } .sheet{ max-width:none; padding:0; }
-    .tools,.barra,.atalhos{ display:none!important; }
+    .tools,.barra,.atalhos,.acoes,.linkbox,.dica,.ok-msg{ display:none!important; }
     *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     .cover{ padding:24mm 12mm; } .cover .sheet{ padding:0; } .wordmark{ font-size:46pt; }
     .item:not(:has(input:checked)){ display:none; }
@@ -242,35 +275,35 @@
       <span class="grupo-sub">sem estas telas não há como cobrar de nenhum arquiteto</span></div>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
+      <input type="checkbox" data-id="venda" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
       <span class="item-txt"><span class="item-nome">Página de venda e planos <span class="tagess">essencial</span></span>
         <span class="item-desc">O produto por dentro, com preço à mostra e compra concluída na própria página.</span></span>
       <span class="item-preco"><span class="p-antes">4.000</span><span class="p-agora">2.800</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="3000" data-preco="2100" data-ess="1" data-grupo="assinatura" checked>
+      <input type="checkbox" data-id="cadastro" data-tab="3000" data-preco="2100" data-ess="1" data-grupo="assinatura" checked>
       <span class="item-txt"><span class="item-nome">Criar meu escritório <span class="tagess">essencial</span></span>
         <span class="item-desc">O arquiteto assina e já entra usando, com o espaço dele criado sozinho.</span></span>
       <span class="item-preco"><span class="p-antes">3.000</span><span class="p-agora">2.100</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="3000" data-preco="2100" data-ess="1" data-grupo="assinatura" checked>
+      <input type="checkbox" data-id="assinatura" data-tab="3000" data-preco="2100" data-ess="1" data-grupo="assinatura" checked>
       <span class="item-txt"><span class="item-nome">Minha assinatura <span class="tagess">essencial</span></span>
         <span class="item-desc">Plano, cobrança, cartão e notas, com troca de plano pelo próprio assinante.</span></span>
       <span class="item-preco"><span class="p-antes">3.000</span><span class="p-agora">2.100</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
+      <input type="checkbox" data-id="painel" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
       <span class="item-txt"><span class="item-nome">Painel de assinantes <span class="tagess">essencial</span></span>
         <span class="item-desc">Seus assinantes, plano, situação de pagamento e a receita do mês.</span></span>
       <span class="item-preco"><span class="p-antes">4.000</span><span class="p-agora">2.800</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
+      <input type="checkbox" data-id="bloqueio" data-tab="4000" data-preco="2800" data-ess="1" data-grupo="assinatura" checked>
       <span class="item-txt"><span class="item-nome">Aviso e bloqueio <span class="tagess">essencial</span></span>
         <span class="item-desc">Cobrança automática, aviso antes do vencimento e corte de quem não paga.</span></span>
       <span class="item-preco"><span class="p-antes">4.000</span><span class="p-agora">2.800</span></span>
@@ -281,35 +314,35 @@
     <div class="grupo-head"><span class="label">Grupo 02</span><h3>Operação da obra</h3></div>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="9000" data-preco="6300" data-ess="1" checked>
+      <input type="checkbox" data-id="contrato" data-tab="9000" data-preco="6300" data-ess="1" checked>
       <span class="item-txt"><span class="item-nome">Contrato automático <span class="tagess">essencial</span></span>
         <span class="item-desc">Gerado com os dados do cliente, enviado para assinatura e voltando assinado para a obra.</span></span>
       <span class="item-preco"><span class="p-antes">9.000</span><span class="p-agora">6.300</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="8000" data-preco="5600" data-ess="1" checked>
+      <input type="checkbox" data-id="agenda" data-tab="8000" data-preco="5600" data-ess="1" checked>
       <span class="item-txt"><span class="item-nome">Agenda da obra <span class="tagess">essencial</span></span>
         <span class="item-desc">Medições e visitas em calendário, no Google, avisando quando dois compromissos se chocam.</span></span>
       <span class="item-preco"><span class="p-antes">8.000</span><span class="p-agora">5.600</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="7000" data-preco="4900" data-ess="1" checked>
+      <input type="checkbox" data-id="fornecedor" data-tab="7000" data-preco="4900" data-ess="1" checked>
       <span class="item-txt"><span class="item-nome">Onde foi comprado <span class="tagess">essencial</span></span>
         <span class="item-desc">O fornecedor de cada item, com contato e valor, consultável pelo cliente anos depois.</span></span>
       <span class="item-preco"><span class="p-antes">7.000</span><span class="p-agora">4.900</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="9000" data-preco="6300">
+      <input type="checkbox" data-id="contratacao" data-tab="9000" data-preco="6300">
       <span class="item-txt"><span class="item-nome">Mapa de contratação</span>
         <span class="item-desc">Fases vermelha, amarela e verde por frente da obra, com o que ainda falta contratar.</span></span>
       <span class="item-preco"><span class="p-antes">9.000</span><span class="p-agora">6.300</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="12000" data-preco="8400">
+      <input type="checkbox" data-id="avisos" data-tab="12000" data-preco="8400">
       <span class="item-txt"><span class="item-nome">Avisos automáticos</span>
         <span class="item-desc">WhatsApp e e-mail a cada etapa concluída, vencimento e pendência do cliente.</span></span>
       <span class="item-preco"><span class="p-antes">12.000</span><span class="p-agora">8.400</span></span>
@@ -320,14 +353,14 @@
     <div class="grupo-head"><span class="label">Grupo 03</span><h3>Trabalhar com planilhas</h3></div>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="7000" data-preco="4900">
+      <input type="checkbox" data-id="excel" data-tab="7000" data-preco="4900">
       <span class="item-txt"><span class="item-nome">Relatórios em Excel</span>
         <span class="item-desc">Qualquer lista ou relatório exportado em planilha formatada, pronta para continuar o trabalho.</span></span>
       <span class="item-preco"><span class="p-antes">7.000</span><span class="p-agora">4.900</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="9000" data-preco="6300">
+      <input type="checkbox" data-id="importar" data-tab="9000" data-preco="6300">
       <span class="item-txt"><span class="item-nome">Importação de planilhas</span>
         <span class="item-desc">Traz clientes, insumos, obras e lançamentos das suas planilhas — e das de cada novo assinante.</span></span>
       <span class="item-preco"><span class="p-antes">9.000</span><span class="p-agora">6.300</span></span>
@@ -338,49 +371,49 @@
     <div class="grupo-head"><span class="label">Grupo 04</span><h3>Diferenciais</h3></div>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="12000" data-preco="8400">
+      <input type="checkbox" data-id="ia" data-tab="12000" data-preco="8400">
       <span class="item-txt"><span class="item-nome">Assistente de IA</span>
         <span class="item-desc">Orçamento por descrição, diário escrito pelas fotos e respostas sobre os seus dados.</span></span>
       <span class="item-preco"><span class="p-antes">12.000</span><span class="p-agora">8.400</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="10000" data-preco="7000">
+      <input type="checkbox" data-id="tabelas" data-tab="10000" data-preco="7000">
       <span class="item-txt"><span class="item-nome">Tabelas oficiais de custo</span>
         <span class="item-desc">Bases de mercado atualizadas todo mês, para orçar sem consultar fornecedor.</span></span>
       <span class="item-preco"><span class="p-antes">10.000</span><span class="p-agora">7.000</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="8000" data-preco="5600">
+      <input type="checkbox" data-id="modelos" data-tab="8000" data-preco="5600">
       <span class="item-txt"><span class="item-nome">Modelos prontos</span>
         <span class="item-desc">Briefing, contrato e etapas de projeto prontos — o que entrega processo a quem está começando.</span></span>
       <span class="item-preco"><span class="p-antes">8.000</span><span class="p-agora">5.600</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="7000" data-preco="4900">
+      <input type="checkbox" data-id="honorarios" data-tab="7000" data-preco="4900">
       <span class="item-txt"><span class="item-nome">Orçamento de honorários</span>
         <span class="item-desc">Preço do seu projeto por metro quadrado, com os custos do escritório embutidos.</span></span>
       <span class="item-preco"><span class="p-antes">7.000</span><span class="p-agora">4.900</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="5000" data-preco="3500">
+      <input type="checkbox" data-id="tarefas" data-tab="5000" data-preco="3500">
       <span class="item-txt"><span class="item-nome">Minhas tarefas</span>
         <span class="item-desc">Cada pessoa da equipe enxerga só o que é dela, de todas as obras.</span></span>
       <span class="item-preco"><span class="p-antes">5.000</span><span class="p-agora">3.500</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="5000" data-preco="3500">
+      <input type="checkbox" data-id="mapaobras" data-tab="5000" data-preco="3500">
       <span class="item-txt"><span class="item-nome">Mapa das obras</span>
         <span class="item-desc">Endereços plotados, para agrupar as visitas do dia.</span></span>
       <span class="item-preco"><span class="p-antes">5.000</span><span class="p-agora">3.500</span></span>
     </span></label>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="4000" data-preco="2800">
+      <input type="checkbox" data-id="pdf" data-tab="4000" data-preco="2800">
       <span class="item-txt"><span class="item-nome">Relatório em PDF</span>
         <span class="item-desc">Andamento da obra com a sua marca, pronto para enviar ao cliente.</span></span>
       <span class="item-preco"><span class="p-antes">4.000</span><span class="p-agora">2.800</span></span>
@@ -392,7 +425,7 @@
       <span class="grupo-sub">único item sem desconto</span></div>
 
     <label class="item"><span class="item-row">
-      <input type="checkbox" data-tab="16000" data-preco="16000" data-semdesc="1">
+      <input type="checkbox" data-id="app" data-tab="16000" data-preco="16000" data-semdesc="1">
       <span class="item-txt"><span class="item-nome">App para celular <span class="tagsem">sem desconto</span></span>
         <span class="item-desc">O TODA nas lojas da Apple e do Google, com aviso na tela e câmera integrada ao diário.</span></span>
       <span class="item-preco"><span class="p-agora">16.000</span></span>
@@ -411,13 +444,36 @@
   <section style="display:flex;flex-direction:column;gap:16px">
     <h2>A sua escolha</h2>
     <div class="resumo">
+      <div class="doc-head">
+        <h3>Proposta TODA — Todaka</h3>
+        <span class="doc-data" id="docData"></span>
+      </div>
       <ul id="lista"><li class="vazio">Nenhuma tela selecionada.</li></ul>
       <div class="parcelas">
         <div class="parcela"><span>30%</span><span>No aceite da proposta</span><span id="p1">R$ 0</span></div>
         <div class="parcela"><span>40%</span><span>Na entrada em operação</span><span id="p2">R$ 0</span></div>
         <div class="parcela"><span>30%</span><span>Após 30 dias de uso</span><span id="p3">R$ 0</span></div>
       </div>
+      <div class="doc-rodape">
+        <div class="doc-linha"><span>Prazo estimado de entrega</span><span id="docPrazo">—</span></div>
+        <div class="doc-linha"><span>Plano mensal da plataforma, após a entrega</span><span>R$ 4.190</span></div>
+        <div class="doc-linha"><span>Preços garantidos por</span><span>24 meses</span></div>
+        <div class="doc-linha"><span>Proposta válida por</span><span>30 dias</span></div>
+      </div>
     </div>
+
+    <div class="acoes">
+      <a class="botao forte" id="waLink" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+      <button class="botao" type="button" id="pdfBtn">Salvar em PDF</button>
+      <button class="botao" type="button" id="copiarBtn">Copiar o link da escolha</button>
+    </div>
+    <p class="dica">
+      O link guarda exatamente as telas que você marcou — quem abrir vê a mesma seleção e pode
+      ajustar. Serve para mandar ao Thiago antes de decidir, ou para nos devolver já fechado.
+    </p>
+    <p class="ok-msg" id="okMsg">Link copiado.</p>
+    <input class="linkbox" id="linkBox" readonly aria-label="Link da sua escolha">
+
     <p style="font-size:14.5px;color:var(--muted)">
       Depois da entrega, o plano mensal da plataforma é de R$ 4.190 — servidor, backup,
       monitoramento, suporte e evolução do sistema. A quatorze assinantes de R$ 300 ele já está
@@ -466,6 +522,9 @@
     var itens = Array.prototype.slice.call(document.querySelectorAll('.item input[type=checkbox]'));
     var lista = document.getElementById("lista");
     var avisoAssin = document.getElementById("avisoAssin");
+    var linkBox = document.getElementById("linkBox");
+    var waLink = document.getElementById("waLink");
+    var okMsg = document.getElementById("okMsg");
 
     function nomeDe(cb){
       var el = cb.closest(".item").querySelector(".item-nome");
@@ -480,22 +539,52 @@
       return "18 semanas";
     }
 
+    /* A seleção viaja no endereço da página: quem abrir o link vê o mesmo conjunto. */
+    function aplicarDoEndereco(){
+      var h = "";
+      try { h = window.location.hash || ""; } catch (e) { return false; }
+      var m = h.match(/s=([a-z0-9,]*)/i);
+      if (!m) return false;
+      var ids = m[1] ? m[1].split(",") : [];
+      itens.forEach(function(cb){ cb.checked = ids.indexOf(cb.dataset.id) !== -1; });
+      return true;
+    }
+
+    function gravarNoEndereco(ids){
+      try {
+        var novo = "#s=" + ids.join(",");
+        if (window.location.hash !== novo) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search + novo);
+        }
+      } catch (e) { /* alguns navegadores bloqueiam; o resto da página segue funcionando */ }
+    }
+
+    function enderecoAtual(ids){
+      try {
+        return window.location.origin + window.location.pathname + "#s=" + ids.join(",");
+      } catch (e) { return "#s=" + ids.join(","); }
+    }
+
     function render(){
-      var total = 0, tabela = 0, n = 0, marcados = [];
+      var total = 0, tabela = 0, n = 0, marcados = [], ids = [];
 
       itens.forEach(function(cb){
         if (!cb.checked) return;
         n++;
         total  += +cb.dataset.preco;
         tabela += +cb.dataset.tab;
+        ids.push(cb.dataset.id);
         marcados.push({ nome: nomeDe(cb), preco: +cb.dataset.preco });
       });
+
+      var prazo = semanas(tabela);
 
       document.getElementById("total").textContent    = BRL(total);
       document.getElementById("qtd").textContent      = n === 1 ? "1 tela" : n + " telas";
       document.getElementById("economia").textContent = BRL(tabela - total);
       document.getElementById("tabela").textContent   = tabela ? "de " + BRL(tabela) : "nada selecionado";
-      document.getElementById("prazo").textContent    = semanas(tabela);
+      document.getElementById("prazo").textContent    = prazo;
+      document.getElementById("docPrazo").textContent = prazo;
 
       document.getElementById("p1").textContent = BRL(total * 0.3);
       document.getElementById("p2").textContent = BRL(total * 0.4);
@@ -524,6 +613,20 @@
       var assin = itens.filter(function(cb){ return cb.dataset.grupo === "assinatura"; });
       var marcadosAssin = assin.filter(function(cb){ return cb.checked; }).length;
       avisoAssin.classList.toggle("on", marcadosAssin > 0 && marcadosAssin < assin.length);
+
+      gravarNoEndereco(ids);
+      var url = enderecoAtual(ids);
+      linkBox.value = url;
+
+      var texto = "*Proposta TODA — a minha escolha*\n\n";
+      marcados.forEach(function(m){ texto += "• " + m.nome + " — " + BRL(m.preco) + "\n"; });
+      texto += "\n*Total:* " + BRL(total) + "\n";
+      texto += "*Parcelas:* " + BRL(total*0.3) + " / " + BRL(total*0.4) + " / " + BRL(total*0.3) + "\n";
+      texto += "*Prazo:* " + prazo + "\n\nVer a seleção: " + url;
+
+      waLink.href = "https://wa.me/?text=" + encodeURIComponent(texto);
+      waLink.setAttribute("aria-disabled", marcados.length ? "false" : "true");
+      okMsg.classList.remove("on");
     }
 
     itens.forEach(function(cb){ cb.addEventListener("change", render); });
@@ -540,13 +643,31 @@
       });
     });
 
+    document.getElementById("copiarBtn").addEventListener("click", function(){
+      linkBox.focus(); linkBox.select();
+      var feito = false;
+      try { feito = document.execCommand("copy"); } catch (e) { feito = false; }
+      if (!feito && navigator.clipboard) {
+        navigator.clipboard.writeText(linkBox.value).then(function(){ okMsg.classList.add("on"); });
+        return;
+      }
+      okMsg.textContent = feito ? "Link copiado." : "Selecione o link acima e copie.";
+      okMsg.classList.add("on");
+    });
+
+    document.getElementById("pdfBtn").addEventListener("click", function(){ window.print(); });
+    document.getElementById("printBtn").addEventListener("click", function(){ window.print(); });
+
     document.getElementById("themeBtn").addEventListener("click", function(){
       var r = document.documentElement, c = r.getAttribute("data-theme");
       if (!c) c = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       r.setAttribute("data-theme", c === "dark" ? "light" : "dark");
     });
-    document.getElementById("printBtn").addEventListener("click", function(){ window.print(); });
 
+    document.getElementById("docData").textContent =
+      new Date().toLocaleDateString("pt-BR", { day:"2-digit", month:"long", year:"numeric" });
+
+    aplicarDoEndereco();
     render();
   })();
 </script>
