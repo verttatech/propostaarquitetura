@@ -103,9 +103,9 @@
   ul.lista b { color:var(--ink); font-weight:620; }
 
   /* ---------- aceite ---------- */
-  .aceite { border:1px solid var(--gold); border-radius:3px; padding:6mm; margin-top:4mm;
+  .aceite { border:1px solid var(--gold); border-radius:3px; padding:5mm; margin-top:3mm;
             background:var(--sup); }
-  .aceite-grid { display:flex; gap:8mm; margin-top:6mm; }
+  .aceite-grid { display:flex; gap:8mm; margin-top:5mm; }
   .assina { flex:1; }
   .linha-assina { border-bottom:1px solid var(--muted); height:12mm; }
   .assina span { font-family:var(--mono); font-size:7.5pt; letter-spacing:.1em;
@@ -220,8 +220,8 @@
         primeiro mês.</dd>
 
     <dt>Investimento</dt>
-    <dd><b>R$ 30.000</b> à vista no aceite, e <b>R$ 4.190 por mês</b> de hospedagem, suporte e
-        evolução contínua.</dd>
+    <dd><b>R$ 30.000</b> à vista no aceite — valor único, cobrindo <b>toda a implantação</b>.
+        A operação mensal é contratada à parte e está detalhada na seção 10.</dd>
 
     <dt>Prazo</dt>
     <dd><b>Seis semanas</b> do aceite até a operação real, com demonstração a cada quinze dias.</dd>
@@ -354,8 +354,8 @@
       <div class="faixa-esq">
         <span class="label">04 · Investimento de implantação</span>
         <div class="valor">R$ 30.000</div>
-        <p class="faixa-nota">Valor único, à vista no aceite. Sem parcelamento e sem custo de
-           implantação à parte.</p>
+        <p class="faixa-nota">Valor único de implantação, à vista no aceite. Sem parcelamento.
+           A operação mensal é opcional e contratada à parte.</p>
       </div>
       <div class="parcelas">
         <span class="label" style="display:block;margin-bottom:3mm">O que está incluído</span>
@@ -468,9 +468,11 @@
         autorização. O uso do caso como referência comercial depende de aprovação por escrito.</li>
     <li><b>Alterações de escopo</b> são orçadas à parte e só entram em execução após aprovação
         por escrito.</li>
-    <li><b>Mensalidade.</b> Início no mês seguinte à entrada em operação, com reajuste anual pelo
-        IPCA. Cancelamento com trinta dias de aviso.</li>
-    <li><b>Pagamento.</b> Valor único de R$ 30.000, à vista no aceite desta proposta.</li>
+    <li><b>Pagamento da implantação.</b> Valor único de R$ 30.000, à vista no aceite desta
+        proposta. Não há cobrança adicional pela entrega do escopo descrito.</li>
+    <li><b>Operação mensal.</b> Contratada à parte e opcional na extensão descrita na seção 10.
+        Início no mês seguinte à entrada em operação, reajuste anual pelo IPCA e cancelamento com
+        trinta dias de aviso.</li>
     <li><b>Validade.</b> Esta proposta vale por trinta dias a partir da data de emissão.</li>
   </ul>
 
@@ -479,26 +481,45 @@
 
 <!-- ============ 8 · MENSAL, PASSOS E ACEITE ============ -->
 <div class="pagina">
-  <h2><span class="n">10</span>Hospedagem e manutenção</h2>
+  <h2><span class="n">10</span>Operação mensal, contratada à parte</h2>
+  <p class="corpo">
+    Os R$ 30.000 da seção 04 cobrem a implantação por inteiro e se encerram na entrega. O que
+    vem depois é decisão sua, e pode ser revista a qualquer momento.
+  </p>
+
   <div class="tbl-wrap">
     <table>
-      <thead><tr><th>Item</th><th>O que inclui</th><th>Por mês</th></tr></thead>
+      <thead><tr><th>Plano</th><th>O que inclui</th><th>Por mês</th></tr></thead>
       <tbody>
-        <tr><td>Plataforma</td>
+        <tr><td>Hospedagem</td>
           <td>Servidor dedicado em São Paulo, backup diário, certificado de segurança,
-              monitoramento, correção de falhas, suporte em horário comercial e evolução
-              contínua do sistema</td>
-          <td class="v">R$ 4.190</td></tr>
+              monitoramento e correção de falhas do que foi entregue</td>
+          <td class="v">R$ 1.290</td></tr>
+        <tr><td>Hospedagem<br>e evolução</td>
+          <td>Tudo do plano acima, mais atendimento prioritário, quatro horas mensais para
+              ajustes e novos relatórios, e a evolução contínua do sistema</td>
+          <td class="v">R$ 2.490</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="nota">
+    <h3>O que é necessário e o que é escolha</h3>
+    <p>
+      <b style="color:var(--ink)">A plataforma precisa de um servidor para ficar no ar</b> — essa
+      parte não é opcional, e o plano Hospedagem existe para cobri-la. Já o
+      <b style="color:var(--ink)">atendimento prioritário, as horas de ajuste e a evolução
+      contínua são opcionais</b>: sem eles, atendemos por demanda pelo valor-hora vigente, sem
+      compromisso de prazo. Se preferir hospedar em infraestrutura própria, conversamos sobre as
+      condições.
+    </p>
+  </div>
+
+  <div class="nota">
     <h3>Seus dados não saem do Brasil, e o HD não queima de novo</h3>
     <p>
-      Servidor dedicado em São Paulo, com backup diário. Além de deixar o sistema mais rápido,
-      simplifica a adequação à LGPD: como não há transferência internacional de dados, as
-      exigências adicionais que a lei impõe nesse caso não se aplicam.
+      O servidor fica em São Paulo, com backup diário. Sem transferência internacional de dados,
+      as exigências adicionais da LGPD para esse caso não se aplicam.
     </p>
   </div>
 
@@ -511,8 +532,13 @@
   <div class="aceite">
     <p style="font-size:9.6pt;color:var(--ink2)">
       Declaro estar de acordo com o escopo, as premissas, os termos e o investimento de
-      <b style="color:var(--ink)">R$ 30.000</b> à vista, acrescido do plano mensal de
-      <b style="color:var(--ink)">R$ 4.190</b> a partir da entrada em operação.
+      <b style="color:var(--ink)">R$ 30.000</b> à vista, referente à implantação.
+    </p>
+    <p style="font-size:9.6pt;color:var(--ink2);margin-top:3mm">
+      Para a operação mensal, a partir da entrada em operação, escolho:
+      &nbsp;&nbsp;<b style="color:var(--ink)">( ) Hospedagem — R$ 1.290</b>
+      &nbsp;&nbsp;<b style="color:var(--ink)">( ) Hospedagem e evolução — R$ 2.490</b>
+      &nbsp;&nbsp;( ) Decido depois
     </p>
     <div class="aceite-grid">
       <div class="assina">
