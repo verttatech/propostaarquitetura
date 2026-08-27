@@ -89,6 +89,28 @@
   .conta-cel .n.gold { color:var(--gold); }
   .conta-cel .s { font-size:8.4pt; color:var(--muted); display:block; margin-top:1.5mm; line-height:1.4; }
 
+  /* ---------- sumário executivo ---------- */
+  .sumario { display:grid; grid-template-columns:34mm 1fr; gap:3mm 6mm; margin-top:2mm; }
+  .sumario dt { font-family:var(--mono); font-size:8pt; letter-spacing:.1em; text-transform:uppercase;
+                color:var(--gold); padding-top:.6mm; }
+  .sumario dd { margin:0; font-size:9.8pt; color:var(--ink2); line-height:1.5; }
+  .sumario dd b { color:var(--ink); font-weight:640; }
+
+  /* ---------- listas de premissas e termos ---------- */
+  ul.lista { margin:2mm 0 0; padding-left:5mm; }
+  ul.lista li { font-size:9.4pt; color:var(--ink2); line-height:1.5; margin-bottom:2mm; }
+  ul.lista li::marker { color:var(--gold); }
+  ul.lista b { color:var(--ink); font-weight:620; }
+
+  /* ---------- aceite ---------- */
+  .aceite { border:1px solid var(--gold); border-radius:3px; padding:6mm; margin-top:4mm;
+            background:var(--sup); }
+  .aceite-grid { display:flex; gap:8mm; margin-top:6mm; }
+  .assina { flex:1; }
+  .linha-assina { border-bottom:1px solid var(--muted); height:12mm; }
+  .assina span { font-family:var(--mono); font-size:7.5pt; letter-spacing:.1em;
+                 text-transform:uppercase; color:var(--muted); display:block; margin-top:2mm; }
+
   /* ---------- escopo ---------- */
   .item { display:grid; grid-template-columns:40mm 1fr; gap:5mm; padding:3.2mm 0;
           border-top:1px solid var(--hair-soft); }
@@ -159,20 +181,71 @@
     <span class="capa-mark">verttatech</span>
     <div class="wordmark">TODA</div>
     <p class="capa-claim">
-      Tudo o que conversamos na reunião, entregue por <b>R$ 30.000</b> à vista.
+      Plataforma de gestão do escritório, da obra e do cliente.
+      <b>Proposta de implantação.</b>
     </p>
     <div class="capa-meta">
-      <div><span class="label">Preparado para</span><strong>Todaka</strong></div>
-      <div><span class="label">Documento</span><strong>Proposta de implantação</strong></div>
-      <div><span class="label">Data</span><strong class="num">Agosto de 2026</strong></div>
+      <div><span class="label">Preparado para</span><strong>Todaka Arquitetura</strong></div>
+      <div><span class="label">Proposta nº</span><strong class="num">2026-08-01</strong></div>
+      <div><span class="label">Data</span><strong class="num">21 de agosto de 2026</strong></div>
       <div><span class="label">Validade</span><strong class="num">30 dias</strong></div>
     </div>
   </div>
 </div>
 
+<!-- ============ 2 · SUMÁRIO EXECUTIVO ============ -->
+<div class="pagina">
+  <h2><span class="n">01</span>Sumário executivo</h2>
+
+  <dl class="sumario">
+    <dt>Situação</dt>
+    <dd>Hoje a gestão da Todaka está repartida entre o seu computador, o do Thiago e o das
+        assistentes, com planilhas que ninguém tem tempo de manter atualizadas. Nenhuma
+        plataforma testada até aqui atendeu por inteiro, e a perda de um HD externo levou junto
+        vinte projetos — inclusive o registro de onde cada item de obra foi comprado.</dd>
+
+    <dt>O que propomos</dt>
+    <dd>Uma plataforma única para o escritório, a obra e o cliente, com
+        <b>portal próprio para o cliente final</b> — o diferencial que quase nenhuma
+        concorrente oferece e que você já pratica hoje, de forma manual, no seu site.</dd>
+
+    <dt>Ponto de partida</dt>
+    <dd><b>Quarenta e quatro telas já estão construídas</b> e entram sem custo, incluindo
+        contrato automático, agenda de obra, mapa de contratação e o registro de fornecedores.
+        Não começamos do zero.</dd>
+
+    <dt>Escopo desta<br>proposta</dt>
+    <dd>Oito frentes que ainda faltam, listadas na seção 03, mais a implantação completa:
+        identidade visual, migração dos dados, treinamento da equipe e acompanhamento no
+        primeiro mês.</dd>
+
+    <dt>Investimento</dt>
+    <dd><b>R$ 30.000</b> à vista no aceite, e <b>R$ 4.190 por mês</b> de hospedagem, suporte e
+        evolução contínua.</dd>
+
+    <dt>Prazo</dt>
+    <dd><b>Seis semanas</b> do aceite até a operação real, com demonstração a cada quinze dias.</dd>
+
+    <dt>Fora do escopo</dt>
+    <dd>Inteligência artificial e aplicativo nas lojas, ambos detalhados à parte, com preço
+        garantido por 24 meses.</dd>
+  </dl>
+
+  <div class="nota">
+    <h3>Por que esta proposta chega diferente</h3>
+    <p>
+      A conversa de 20 de agosto foi transcrita e revista item a item. Cada frente da seção 03
+      responde a uma situação que você descreveu — não a uma suposição nossa. Onde citamos um
+      caso, ele é seu.
+    </p>
+  </div>
+
+  <div class="pag">2</div>
+</div>
+
 <!-- ============ 2 · JÁ CONSTRUÍDO ============ -->
 <div class="pagina">
-  <h2><span class="n">01</span>A maior parte já está construída</h2>
+  <h2><span class="n">02</span>A maior parte já está construída</h2>
   <p class="intro">
     Quarenta e quatro telas prontas e testadas. Elas <b style="color:var(--ink)">não entram nesta
     conta</b> — é o que permite entregar tudo em seis semanas em vez de seis meses.
@@ -214,12 +287,12 @@
        cidade, exportação para Excel — e a camada que permite vender assinatura da plataforma a
        outros arquitetos, com cadastro, cobrança e corte de inadimplente.</p></div>
 
-  <div class="pag">2</div>
+  <div class="pag">3</div>
 </div>
 
 <!-- ============ 3 · O QUE SERÁ CONSTRUÍDO ============ -->
 <div class="pagina densa">
-  <h2><span class="n">02</span>O que será construído agora</h2>
+  <h2><span class="n">03</span>O que será construído agora</h2>
   <p class="intro">
     Oito frentes — tudo o que apareceu na reunião e ainda não existe, com uma única exceção
     tratada na seção 05.
@@ -271,7 +344,7 @@
     <p>O andamento da obra exportado com a sua marca, pronto para enviar ao cliente que prefere
        receber em vez de entrar na plataforma.</p></div>
 
-  <div class="pag">3</div>
+  <div class="pag">4</div>
 </div>
 
 <!-- ============ 4 · PREÇO ============ -->
@@ -279,7 +352,7 @@
   <div class="faixa" style="margin-top:0">
     <div class="faixa-grid">
       <div class="faixa-esq">
-        <span class="label">03 · Investimento de implantação</span>
+        <span class="label">04 · Investimento de implantação</span>
         <div class="valor">R$ 30.000</div>
         <p class="faixa-nota">Valor único, à vista no aceite. Sem parcelamento e sem custo de
            implantação à parte.</p>
@@ -294,7 +367,7 @@
     </div>
   </div>
 
-  <h2><span class="n">04</span>De onde vem esse preço</h2>
+  <h2><span class="n">05</span>De onde vem esse preço</h2>
 
   <table style="margin-top:3mm">
     <thead><tr><th>Frente</th><th>Valor</th></tr></thead>
@@ -320,15 +393,15 @@
   </p>
 
 
-  <div class="pag">4</div>
+  <div class="pag">5</div>
 </div>
 
-<!-- ============ 5 · PRAZO E O QUE FICA FORA ============ -->
+<!-- ============ 6 · PRAZO E PREMISSAS ============ -->
 <div class="pagina">
-  <h2><span class="n">05</span>Seis semanas até estar operando</h2>
+  <h2><span class="n">06</span>Prazo de entrega</h2>
   <div class="faixas4">
     <div class="bloco"><span class="s">Semana 1</span><h3>Descoberta</h3>
-      <p>Seu processo mapeado, identidade visual e dados coletados.</p></div>
+      <p>Processo mapeado, identidade visual e dados coletados.</p></div>
     <div class="bloco"><span class="s">Semanas 2–4</span><h3>Construção</h3>
       <p>As oito frentes novas, com demonstração a cada quinze dias.</p></div>
     <div class="bloco"><span class="s">Semanas 5–6</span><h3>Implantação</h3>
@@ -337,87 +410,121 @@
       <p>Ajustes com base no uso e correção sem custo.</p></div>
   </div>
 
-  <div class="nota">
-    <h3>A comparação com o que foi levantado na reunião</h3>
-    <p>
-      Na conversa apareceram três referências: fábrica de software entre
-      <b style="color:var(--ink)">R$ 40.000 e R$ 100.000</b>, autônomo entre
-      <b style="color:var(--ink)">R$ 25.000 e R$ 60.000</b>, e a proposta inicial de R$ 25.000 que
-      ainda deixava de fora o funil de vendas, avaliado à parte em R$ 15.000. Aqui o funil já vem
-      pronto e sem custo, junto de tudo o mais — e o total fica no piso da faixa do autônomo.
-    </p>
-  </div>
-
-  <h2 style="margin-top:7mm"><span class="n">06</span>O que fica fora</h2>
-
-  <div class="nota" style="margin-top:0">
-    <h3>A inteligência artificial</h3>
-    <p>
-      Como conversamos, é o item de maior custo e o único que consome serviço por uso, com
-      mensalidade própria. Você mesma levantou a dúvida se uma plataforma deveria nascer sem IA —
-      e a conclusão da reunião foi que <b style="color:var(--ink)">pode nascer sem e recebê-la
-      depois</b>, como aconteceu com as plataformas grandes. É o caminho desta proposta: entrar em
-      operação primeiro, acrescentar a IA quando houver dados e receita.
-    </p>
-  </div>
-
-  <div class="nota">
-    <h3>O aplicativo para celular</h3>
-    <p>
-      Fica à parte porque não é uma tela: é um canal de distribuição próprio, com contas de
-      desenvolvedor na Apple e no Google, aprovação nas lojas e duas plataformas a manter além da
-      web. A plataforma funciona no celular pelo navegador desde o primeiro dia — o aplicativo nas
-      lojas é um passo posterior.
-    </p>
-  </div>
-
+  <h2 style="margin-top:7mm"><span class="n">07</span>Premissas</h2>
   <p class="corpo">
-    Os dois estão detalhados, com preço garantido por 24 meses, no documento
-    <b style="color:var(--ink)">“O que acrescenta”</b>, que acompanha esta proposta.
+    O prazo e o valor acima consideram as condições abaixo. Registramos por escrito porque
+    premissa não combinada vira divergência depois.
   </p>
+  <ul class="lista">
+    <li>A Todaka indica <b>uma pessoa responsável</b> pelas decisões de escopo, com validação das
+        entregas em até cinco dias úteis. O prazo é suspenso enquanto uma validação estiver
+        pendente.</li>
+    <li>Os dados a migrar são entregues em <b>planilha ou arquivo estruturado</b>. Informação que
+        só exista em papel ou em conversa não entra na migração.</li>
+    <li>A identidade visual é fornecida em <b>arquivo vetorial</b>, com as cores definidas.</li>
+    <li>Os <b>textos de contrato e de briefing</b> são fornecidos pela Todaka. Nós construímos o
+        mecanismo que os preenche e envia; a redação e a revisão jurídica são dela.</li>
+    <li>As contas em serviços de terceiros — <b>WhatsApp Business, meio de pagamento, assinatura
+        eletrônica</b> — são abertas em nome da Todaka, que arca com as tarifas de uso.</li>
+    <li>As <b>tabelas oficiais de custo</b> são as bases públicas disponíveis. Mudança de formato
+        na fonte pode exigir ajuste, orçado à parte.</li>
+    <li>O prazo de seis semanas é contado <b>do aceite e da entrega dos insumos acima</b>, o que
+        ocorrer por último.</li>
+  </ul>
 
-  <div class="pag">5</div>
+  <div class="pag">6</div>
 </div>
 
-<!-- ============ 6 · MENSAL + PASSOS ============ -->
+<!-- ============ 7 · FORA DO ESCOPO E TERMOS ============ -->
 <div class="pagina">
-  <h2><span class="n">07</span>Hospedagem e manutenção</h2>
-  <p class="intro">
-    Depois da entrega, a plataforma precisa de servidor, backup, monitoramento e suporte.
+  <h2><span class="n">08</span>O que não está incluído</h2>
+  <p class="corpo">
+    Listado com a mesma clareza do que está — é o que evita mal-entendido na entrega.
   </p>
+  <ul class="lista">
+    <li><b>Inteligência artificial.</b> Como conversamos, é o item de maior custo e o único que
+        consome serviço por uso. A conclusão da reunião foi que a plataforma pode nascer sem e
+        recebê-la depois, como fizeram as plataformas grandes.</li>
+    <li><b>Aplicativo nas lojas da Apple e do Google.</b> Não é uma tela: é canal de distribuição
+        próprio, com contas de desenvolvedor, aprovação nas lojas e duas plataformas a manter. A
+        plataforma funciona no celular pelo navegador desde o primeiro dia.</li>
+    <li><b>Integrações não citadas nesta proposta.</b> Qualquer sistema externo além dos previstos
+        é avaliado e orçado à parte.</li>
+    <li><b>Elaboração de conteúdo jurídico.</b> Não redigimos nem revisamos cláusulas de contrato.</li>
+    <li><b>Digitalização de acervo em papel</b> e recuperação de dados perdidos.</li>
+    <li><b>Treinamento além das duas sessões previstas.</b> Sessões extras podem ser contratadas
+        pelo valor-hora vigente.</li>
+  </ul>
 
-  <table>
-    <thead><tr><th>Item</th><th>O que inclui</th><th>Por mês</th></tr></thead>
-    <tbody>
-      <tr><td>Plataforma</td>
-        <td>Servidor dedicado em São Paulo, backup diário, certificado de segurança,
-            monitoramento, correção de falhas, suporte e evolução do sistema</td>
-        <td class="v">R$ 4.190</td></tr>
-    </tbody>
-  </table>
+  <h2 style="margin-top:7mm"><span class="n">09</span>Termos e condições</h2>
+  <ul class="lista">
+    <li><b>Garantia.</b> Noventa dias de correção sem custo após a entrada em operação, para
+        qualquer defeito no que foi entregue.</li>
+    <li><b>Licença.</b> A Todaka recebe licença de uso e de exploração comercial da plataforma,
+        com a sua marca. O código-fonte permanece com a verttatech.</li>
+    <li><b>Seus dados são seus.</b> A qualquer momento, e em qualquer cenário de encerramento, a
+        Todaka recebe cópia completa em formato aberto.</li>
+    <li><b>Confidencialidade mútua.</b> Nenhuma das partes divulga informação da outra sem
+        autorização. O uso do caso como referência comercial depende de aprovação por escrito.</li>
+    <li><b>Alterações de escopo</b> são orçadas à parte e só entram em execução após aprovação
+        por escrito.</li>
+    <li><b>Mensalidade.</b> Início no mês seguinte à entrada em operação, com reajuste anual pelo
+        IPCA. Cancelamento com trinta dias de aviso.</li>
+    <li><b>Pagamento.</b> Valor único de R$ 30.000, à vista no aceite desta proposta.</li>
+    <li><b>Validade.</b> Esta proposta vale por trinta dias a partir da data de emissão.</li>
+  </ul>
+
+  <div class="pag">7</div>
+</div>
+
+<!-- ============ 8 · MENSAL, PASSOS E ACEITE ============ -->
+<div class="pagina">
+  <h2><span class="n">10</span>Hospedagem e manutenção</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>O que inclui</th><th>Por mês</th></tr></thead>
+      <tbody>
+        <tr><td>Plataforma</td>
+          <td>Servidor dedicado em São Paulo, backup diário, certificado de segurança,
+              monitoramento, correção de falhas, suporte em horário comercial e evolução
+              contínua do sistema</td>
+          <td class="v">R$ 4.190</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="nota">
     <h3>Seus dados não saem do Brasil, e o HD não queima de novo</h3>
     <p>
-      A plataforma roda em servidor dedicado em São Paulo, com backup diário. Além de deixar o
-      sistema mais rápido, isso simplifica a adequação à LGPD: como não há transferência
-      internacional de dados, as exigências adicionais que a lei impõe nesse caso não se aplicam.
-      E o que está lá não depende de nenhum HD externo.
+      Servidor dedicado em São Paulo, com backup diário. Além de deixar o sistema mais rápido,
+      simplifica a adequação à LGPD: como não há transferência internacional de dados, as
+      exigências adicionais que a lei impõe nesse caso não se aplicam.
     </p>
   </div>
 
-  <h2 style="margin-top:6mm"><span class="n">08</span>Próximos passos</h2>
-  <div class="faixas4">
-    <div class="bloco"><span class="s">01</span><p>Demonstração da plataforma rodando, com o sistema na tela.</p></div>
-    <div class="bloco"><span class="s">02</span><p>Aceite desta proposta e formalização do contrato.</p></div>
-    <div class="bloco"><span class="s">03</span><p>Coleta da identidade visual e dos dados a migrar.</p></div>
-    <div class="bloco"><span class="s">04</span><p>Seis semanas até operar.</p></div>
-  </div>
-
-  <p class="corpo" style="margin-top:5mm">
-    Esta proposta é válida por 30 dias e substitui as anteriores. Qualquer ponto do escopo pode
-    ser revisto antes do aceite.
+  <h2 style="margin-top:6mm"><span class="n">11</span>Aceite</h2>
+  <p class="corpo">
+    Para seguir, basta assinar abaixo e devolver uma via. O prazo começa a contar do aceite e da
+    entrega dos insumos descritos na seção 07.
   </p>
+
+  <div class="aceite">
+    <p style="font-size:9.6pt;color:var(--ink2)">
+      Declaro estar de acordo com o escopo, as premissas, os termos e o investimento de
+      <b style="color:var(--ink)">R$ 30.000</b> à vista, acrescido do plano mensal de
+      <b style="color:var(--ink)">R$ 4.190</b> a partir da entrada em operação.
+    </p>
+    <div class="aceite-grid">
+      <div class="assina">
+        <div class="linha-assina"></div>
+        <span>Todaka Arquitetura · nome, CPF/CNPJ e data</span>
+      </div>
+      <div class="assina">
+        <div class="linha-assina"></div>
+        <span>verttatech · nome e data</span>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div>
@@ -425,7 +532,7 @@
       <span class="rod-marca">TODA</span>
     </div>
     <div class="rod-meta">
-      Proposta de implantação · Agosto de 2026<br>
+      Proposta 2026-08-01 · 21 de agosto de 2026<br>
       Válida por 30 dias a partir da emissão
     </div>
   </footer>
