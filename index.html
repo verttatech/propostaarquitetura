@@ -450,9 +450,9 @@
       </div>
       <ul id="lista"><li class="vazio">Nenhuma tela selecionada.</li></ul>
       <div class="parcelas">
-        <div class="parcela"><span>30%</span><span>No aceite da proposta</span><span id="p1">R$ 0</span></div>
-        <div class="parcela"><span>40%</span><span>Na entrada em operação</span><span id="p2">R$ 0</span></div>
-        <div class="parcela"><span>30%</span><span>Após 30 dias de uso</span><span id="p3">R$ 0</span></div>
+        <div class="parcela"><span>✓</span><span>Pagamento à vista, no aceite da proposta</span><span id="p1">R$ 0</span></div>
+        <div class="parcela"><span>✓</span><span>Implantação, migração e treinamento inclusos</span><span>—</span></div>
+        <div class="parcela"><span>✓</span><span>Acompanhamento no primeiro mês, sem custo</span><span>—</span></div>
       </div>
       <div class="doc-rodape">
         <div class="doc-linha"><span>Prazo estimado de entrega</span><span id="docPrazo">—</span></div>
@@ -586,9 +586,7 @@
       document.getElementById("prazo").textContent    = prazo;
       document.getElementById("docPrazo").textContent = prazo;
 
-      document.getElementById("p1").textContent = BRL(total * 0.3);
-      document.getElementById("p2").textContent = BRL(total * 0.4);
-      document.getElementById("p3").textContent = BRL(total * 0.3);
+      document.getElementById("p1").textContent = BRL(total);
 
       lista.innerHTML = "";
       if (!marcados.length) {
@@ -621,7 +619,7 @@
       var texto = "*Proposta TODA — a minha escolha*\n\n";
       marcados.forEach(function(m){ texto += "• " + m.nome + " — " + BRL(m.preco) + "\n"; });
       texto += "\n*Total:* " + BRL(total) + "\n";
-      texto += "*Parcelas:* " + BRL(total*0.3) + " / " + BRL(total*0.4) + " / " + BRL(total*0.3) + "\n";
+      texto += "*Condição:* à vista, no aceite\n";
       texto += "*Prazo:* " + prazo + "\n\nVer a seleção: " + url;
 
       waLink.href = "https://wa.me/?text=" + encodeURIComponent(texto);

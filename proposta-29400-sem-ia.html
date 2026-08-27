@@ -68,6 +68,27 @@
   .nota h3 { color:var(--gold-forte); margin-bottom:2mm; }
   .nota p { font-size:9.6pt; color:var(--ink2); }
 
+  /* ---------- tela detalhada ---------- */
+  .tela { border-top:1px solid var(--hair-soft); padding:3.4mm 0; }
+  .tela:last-of-type { border-bottom:1px solid var(--hair-soft); }
+  .tela-cab { display:flex; align-items:baseline; gap:4mm; margin-bottom:1.5mm; }
+  .tela-cab h3 { flex:1; }
+  .tela-preco { font-family:var(--mono); font-size:9.5pt; font-weight:700; color:var(--gold);
+                font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .tela p { font-size:9.3pt; color:var(--ink2); line-height:1.48; }
+  .resolve { display:block; margin-top:1.5mm; font-size:8.8pt; color:var(--muted); }
+  .resolve b { color:var(--gold); font-weight:600; }
+
+  /* ---------- justificativa do preço ---------- */
+  .conta { display:flex; gap:1px; background:var(--hair); border:1px solid var(--hair); margin:3mm 0; }
+  .conta-cel { background:var(--sup); padding:5mm; flex:1; }
+  .conta-cel .l { font-family:var(--mono); font-size:7pt; letter-spacing:.13em;
+                  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:2mm; }
+  .conta-cel .n { font-family:var(--mono); font-size:15pt; font-weight:700; letter-spacing:-.02em;
+                  font-variant-numeric:tabular-nums; color:var(--ink); display:block; }
+  .conta-cel .n.gold { color:var(--gold); }
+  .conta-cel .s { font-size:8.4pt; color:var(--muted); display:block; margin-top:1.5mm; line-height:1.4; }
+
   /* ---------- escopo ---------- */
   .item { display:grid; grid-template-columns:40mm 1fr; gap:5mm; padding:3.2mm 0;
           border-top:1px solid var(--hair-soft); }
@@ -134,7 +155,7 @@
     <div class="wordmark">TODA</div>
     <p class="capa-claim">
       A plataforma completa de gestão do escritório, da obra e do cliente — implantada por
-      <b>R$ 29.400</b>.
+      <b>R$ 29.400</b>, à vista.
     </p>
     <div class="capa-meta">
       <div><span class="label">Preparado para</span><strong>Todaka</strong></div>
@@ -149,98 +170,195 @@
 <div class="pagina">
   <h2><span class="n">01</span>O que já está pronto não entra na conta</h2>
   <p class="intro">
-    Trinta e quatro telas da plataforma já estão construídas e vão junto, sem cobrança.
+    Trinta e quatro telas da plataforma já estão construídas, testadas e vão junto — sem
+    cobrança. É o que torna possível uma implantação de seis semanas em vez de seis meses.
   </p>
 
   <div class="destaque">
     <h3>Incluído sem custo · valor de tabela R$ 76.000</h3>
     <p>
-      Toda a gestão do escritório — clientes, projetos e obras, cronograma, tarefas, orçamento
-      com biblioteca de insumos, diário de obra com fotos, medições, financeiro com margem por
-      obra, compras e funil de vendas. Mais as nove abas de cada obra e o <b>portal do cliente
-      completo</b>, com a sua marca: progresso, cronograma, diário, galeria de fotos, parcelas,
-      aprovações, documentos e conversa.
+      Você não paga por nada que já existe. Paga apenas pelas telas novas, listadas adiante.
     </p>
   </div>
 
-  <p class="corpo">
-    Você paga apenas pelo que ainda vai ser construído, e com <b style="color:var(--ink)">30% de
-    desconto</b>. As oito telas da próxima página são as que fazem a plataforma gerar receita e
-    as que resolvem o que conversamos na reunião.
-  </p>
+  <div class="tela"><div class="tela-cab"><h3>Gestão do escritório</h3></div>
+    <p>Clientes e fornecedores num cadastro só, projetos e obras, funil de vendas com propostas
+       de link próprio, equipe com cinco níveis de permissão, e a tela inicial que avisa quais
+       obras ficaram dias sem movimento antes de você precisar procurar.</p></div>
 
-  <div style="margin-top:8mm">
-    <h2 style="border-top-color:var(--hair)"><span class="n">02</span>O que será entregue</h2>
-    <div class="item"><h3>Página de venda</h3>
-      <p>O produto por dentro, com os planos e o preço à mostra, e a compra concluída na própria
-         página — sem formulário de convite nem espera por vendedor.</p></div>
-    <div class="item"><h3>Criar meu escritório</h3>
-      <p>O arquiteto assina e já entra usando, com o espaço dele criado sozinho e exemplos
-         prontos para a plataforma não abrir vazia.</p></div>
-    <div class="item"><h3>Minha assinatura</h3>
-      <p>Plano atual, próxima cobrança, forma de pagamento e notas fiscais, com troca de plano e
-         cancelamento pelo próprio assinante.</p></div>
-    <div class="item"><h3>Painel de assinantes</h3>
-      <p>Todos os escritórios assinantes, plano, situação de pagamento e a receita recorrente do
-         mês. É a tela do seu negócio.</p></div>
-    <div class="item"><h3>Aviso e bloqueio</h3>
-      <p>Cobrança automática, aviso antes do vencimento e corte de quem não paga — com os dados
-         preservados para quando regularizar.</p></div>
-  </div>
+  <div class="tela"><div class="tela-cab"><h3>Dentro de cada obra · nove abas</h3></div>
+    <p>Visão geral, cronograma com peso por etapa, quadro de tarefas, orçamento com biblioteca de
+       insumos e composições de custo, diário de obra com fotos, medições, curva ABC, financeiro
+       da obra e arquivos.</p>
+    <span class="resolve"><b>Regra que vale citar:</b> aprovar um orçamento congela o preço de
+       cada item, então medição e relatório sempre comparam contra o combinado, não contra um
+       alvo que mudou de lugar.</span></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Compras e financeiro</h3></div>
+    <p>Solicitação do canteiro, aprovação do gestor, pedido ao fornecedor — e a duplicata nasce
+       sozinha no contas a pagar. O financeiro tem plano de contas e centro de custo por obra,
+       o que faz a margem de cada projeto sair pronta, sem planilha paralela.</p></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Portal do cliente · oito telas</h3></div>
+    <p>Com a sua marca e o seu endereço: progresso da obra, cronograma sem jargão, diário com
+       fotos onde ele comenta, galeria por mês, parcelas do contrato, aprovações, documentos
+       compartilhados e conversa com o escritório.</p>
+    <span class="resolve"><b>O corte é no servidor:</b> ele só enxerga o que você marcou como
+       visível, e apenas das obras dele.</span></div>
 
   <div class="pag">2</div>
 </div>
 
-<!-- ============ 3 · RESTO DO ESCOPO + PREÇO ============ -->
+<!-- ============ 3 · TELAS DE ASSINATURA ============ -->
 <div class="pagina">
-  <h2><span class="n">02</span>O que será entregue <span style="font-size:9pt;font-weight:400;color:var(--muted)">· continuação</span></h2>
+  <h2><span class="n">02</span>O que será construído · vender assinaturas</h2>
+  <p class="intro">
+    Cinco telas que transformam a plataforma em produto com receita recorrente. Sem elas não há
+    como cobrar de nenhum arquiteto.
+  </p>
 
-  <div class="item"><h3>Contrato automático</h3>
-    <p>Gerado com os dados do cliente a partir do seu modelo, enviado por link para assinatura e
-       voltando assinado para os arquivos da obra. Substitui o caminho de hoje: abrir o Word,
-       exportar PDF, subir no site de assinatura, mandar e-mail e baixar de volta.</p></div>
-  <div class="item"><h3>Agenda da obra</h3>
-    <p>Medições, visitas e entregas em calendário, com responsável, espelhadas na agenda do
-       Google e avisando quando dois compromissos se chocam.</p></div>
-  <div class="item"><h3>Onde foi comprado</h3>
-    <p>O fornecedor de cada item da obra, com contato, valor e garantia, consultável pelo cliente
-       anos depois da entrega.</p></div>
-  <div class="item"><h3>Implantação</h3>
-    <p>Identidade visual aplicada, migração dos dados atuais, treinamento da equipe em duas
-       sessões e acompanhamento no primeiro mês de uso.</p></div>
+  <div class="tela"><div class="tela-cab"><h3>Página de venda e planos</h3><span class="tela-preco">R$ 2.800</span></div>
+    <p>O produto por dentro — telas de verdade, não parágrafos — com os planos e o preço à mostra,
+       e a compra concluída na própria página.</p>
+    <span class="resolve"><b>Por que importa:</b> é o oposto do "solicite um convite" que fez você
+       desistir de testar o concorrente.</span></div>
 
-  <div class="faixa" style="margin-top:8mm">
-    <div class="faixa-grid">
-      <div class="faixa-esq">
-        <span class="label">03 · Investimento de implantação</span>
-        <span class="riscado">R$ 42.000 sem o desconto</span>
-        <div class="valor">R$ 29.400</div>
-        <p class="faixa-nota">As oito telas acima, com a plataforma pronta incluída e a equipe treinada.</p>
-      </div>
-      <div class="parcelas">
-        <div class="parcela"><span class="p">30%</span><span class="d">No aceite da proposta</span><span class="v">R$ 8.820</span></div>
-        <div class="parcela"><span class="p">40%</span><span class="d">Na entrada em operação</span><span class="v">R$ 11.760</span></div>
-        <div class="parcela"><span class="p">30%</span><span class="d">Após 30 dias de uso</span><span class="v">R$ 8.820</span></div>
-      </div>
-    </div>
-  </div>
+  <div class="tela"><div class="tela-cab"><h3>Criar meu escritório</h3><span class="tela-preco">R$ 2.100</span></div>
+    <p>Formulário curto: escritório, responsável, e-mail e senha. O espaço do assinante é criado
+       sozinho, isolado dos demais, e ele já entra usando — com exemplos prontos para a
+       plataforma não abrir vazia.</p></div>
 
-  <h2><span class="n">04</span>Seis semanas até estar vendendo</h2>
-  <div class="faixas4">
-    <div class="bloco"><span class="s">Semana 1</span><h3>Descoberta</h3>
-      <p>Ajuste do processo e coleta da identidade visual e dos dados.</p></div>
-    <div class="bloco"><span class="s">Semanas 2–4</span><h3>Construção</h3>
-      <p>As oito telas novas, com demonstração a cada quinze dias.</p></div>
-    <div class="bloco"><span class="s">Semanas 5–6</span><h3>Implantação</h3>
-      <p>Marca aplicada, dados migrados, treinamento e operação.</p></div>
-    <div class="bloco"><span class="s">Mês seguinte</span><h3>Acompanhamento</h3>
-      <p>Ajustes com base no uso e correção sem custo.</p></div>
-  </div>
+  <div class="tela"><div class="tela-cab"><h3>Minha assinatura</h3><span class="tela-preco">R$ 2.100</span></div>
+    <p>Plano atual, próxima cobrança, forma de pagamento e notas fiscais. O assinante troca de
+       plano e cancela sozinho, sem abrir chamado.</p></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Painel de assinantes</h3><span class="tela-preco">R$ 2.800</span></div>
+    <p>Todos os escritórios assinantes, plano, situação de pagamento e a receita recorrente do
+       mês, com suspensão e reativação por linha.</p>
+    <span class="resolve"><b>Por que importa:</b> é a tela do seu negócio, separada da operação de
+       qualquer obra.</span></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Aviso e bloqueio</h3><span class="tela-preco">R$ 2.800</span></div>
+    <p>Aviso discreto antes do vencimento, e corte do acesso de quem passou do prazo — com os
+       dados preservados para quando regularizar.</p>
+    <span class="resolve"><b>Por que importa:</b> é o que garante que a inadimplência tenha
+       consequência sem você precisar cobrar pessoalmente.</span></div>
 
   <div class="pag">3</div>
 </div>
 
-<!-- ============ 4 · O QUE NÃO ESTÁ INCLUÍDO ============ -->
+<!-- ============ 4 · TELAS DE OPERAÇÃO ============ -->
+<div class="pagina">
+  <h2><span class="n">02</span>O que será construído · operação da obra</h2>
+  <p class="intro">
+    Três telas que respondem, uma a uma, ao que você contou na nossa reunião.
+  </p>
+
+  <div class="tela"><div class="tela-cab"><h3>Contrato automático</h3><span class="tela-preco">R$ 6.300</span></div>
+    <p>Você cadastra os seus modelos de contrato com marcadores. Ao gerar, os dados do cliente e
+       da obra entram sozinhos, o texto fica editável, e um link leva o cliente à assinatura.
+       Assinado, ele volta para os arquivos da obra com nome, documento e data registrados.</p>
+    <span class="resolve"><b>Substitui:</b> abrir o Word, editar, exportar PDF, subir no site de
+       assinatura, mandar e-mail, esperar e baixar de volta.</span></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Agenda da obra</h3><span class="tela-preco">R$ 5.600</span></div>
+    <p>Medições, visitas e entregas em calendário, com responsável e local, espelhadas na agenda
+       do Google. Ao marcar, o sistema avisa se aquele responsável já tem compromisso no mesmo
+       horário, em qualquer obra.</p>
+    <span class="resolve"><b>Nasceu do caso real:</b> a medição combinada no grupo que ninguém
+       viu, e o medidor que chegou sem ter quem o recebesse.</span></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Onde foi comprado</h3><span class="tela-preco">R$ 4.900</span></div>
+    <p>Item a item da obra: o que foi comprado, em qual loja, por quanto, com quem falar e até
+       quando vale a garantia. Fica consultável pelo próprio cliente, no portal, depois da
+       entrega.</p>
+    <span class="resolve"><b>Nasceu do caso real:</b> o HD que queimou com vinte projetos, e o
+       cliente que ligou dois anos depois perguntando onde tinha sido comprada a luminária.</span></div>
+
+  <div class="tela"><div class="tela-cab"><h3>Implantação</h3><span class="tela-preco">incluída</span></div>
+    <p>Identidade visual aplicada à plataforma e ao portal, migração dos dados que você tem hoje,
+       treinamento da equipe em duas sessões e acompanhamento próximo no primeiro mês de uso,
+       com correção sem custo.</p></div>
+
+  <div class="faixa" style="margin-top:7mm">
+    <div class="faixa-grid">
+      <div class="faixa-esq">
+        <span class="label">03 · Investimento de implantação</span>
+        <span class="riscado">R$ 42.000 somando as telas uma a uma</span>
+        <div class="valor">R$ 29.400</div>
+        <p class="faixa-nota">Valor único, à vista no aceite. Sem parcelamento e sem custo de
+           implantação à parte.</p>
+      </div>
+      <div class="parcelas">
+        <span class="label" style="display:block;margin-bottom:3mm">O que está incluído</span>
+        <div class="parcela"><span class="p">✓</span><span class="d">As oito telas novas</span><span class="v">R$ 29.400</span></div>
+        <div class="parcela"><span class="p">✓</span><span class="d">A plataforma pronta, 34 telas</span><span class="v">sem custo</span></div>
+        <div class="parcela"><span class="p">✓</span><span class="d">Marca, migração e treinamento</span><span class="v">incluídos</span></div>
+        <div class="parcela"><span class="p">✓</span><span class="d">Acompanhamento no 1º mês</span><span class="v">incluído</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pag">4</div>
+</div>
+
+<!-- ============ 5 · PREÇO E JUSTIFICATIVA ============ -->
+<div class="pagina">
+  <h2><span class="n">04</span>De onde vem esse preço</h2>
+
+
+
+  <table class="compacta" style="margin-top:4mm">
+    <thead><tr><th>Tela</th><th>De</th><th>Por</th></tr></thead>
+    <tbody>
+      <tr><td>Página de venda e planos</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">4.000</td><td class="v">2.800</td></tr>
+      <tr><td>Criar meu escritório</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">3.000</td><td class="v">2.100</td></tr>
+      <tr><td>Minha assinatura</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">3.000</td><td class="v">2.100</td></tr>
+      <tr><td>Painel de assinantes</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">4.000</td><td class="v">2.800</td></tr>
+      <tr><td>Aviso e bloqueio</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">4.000</td><td class="v">2.800</td></tr>
+      <tr><td>Contrato automático</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">9.000</td><td class="v">6.300</td></tr>
+      <tr><td>Agenda da obra</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">8.000</td><td class="v">5.600</td></tr>
+      <tr><td>Onde foi comprado</td><td class="v" style="text-align:right;color:var(--muted);font-weight:500">7.000</td><td class="v">4.900</td></tr>
+      <tr style="border-top:1.5px solid var(--gold)">
+        <td style="padding-top:3mm">Total das oito telas</td>
+        <td class="v" style="text-align:right;color:var(--muted);font-weight:500;padding-top:3mm">42.000</td>
+        <td class="v" style="padding-top:3mm;color:var(--gold);font-size:11pt">29.400</td></tr>
+    </tbody>
+  </table>
+
+  <p class="corpo" style="margin-top:4mm">
+    <b style="color:var(--ink)">O desconto cabe por um motivo concreto:</b> a plataforma já está
+    construída. O trabalho desta proposta é somar oito telas a um sistema que existe e funciona —
+    não erguer um do zero. É por isso que o prazo é de seis semanas e não de seis meses, e é por
+    isso que as trinta e quatro telas prontas entram sem cobrança em vez de virarem preço.
+  </p>
+
+  <div class="nota">
+    <h3>A comparação que importa</h3>
+    <p>
+      Levantamento de 2026 com projetos brasileiros reais coloca um sistema desta complexidade —
+      multiusuário, com portal externo e vários perfis de acesso — entre
+      <b style="color:var(--ink)">R$ 100.000 e R$ 300.000</b>, com prazo de seis meses a um ano.
+      Somando o que você recebe aqui, são <b style="color:var(--ink)">R$ 118.000</b> de valor de
+      tabela: R$ 76.000 já construídos mais R$ 42.000 de telas novas. O que sai do seu caixa são
+      R$ 29.400.
+    </p>
+  </div>
+
+  <div class="nota">
+    <h3>E o que sustenta isso</h3>
+    <p>
+      Entregar a plataforma pronta sem cobrança e ainda descontar 30% das telas novas só se
+      sustenta porque existe uma relação de prazo: o plano mensal da seção 06, de
+      <b style="color:var(--ink)">24 meses</b>. É ele que paga a manutenção, o servidor e a
+      evolução contínua do sistema — e, como você verá, quatorze assinantes o cobrem por inteiro.
+    </p>
+  </div>
+
+  <div class="pag">5</div>
+</div>
+
+<!-- ============ 6 · O QUE NÃO ESTÁ INCLUÍDO ============ -->
 <div class="pagina">
   <h2><span class="n">05</span>O que não está incluído</h2>
 
@@ -255,8 +373,9 @@
   </div>
 
   <p class="corpo" style="margin-bottom:3mm">
-    Os demais itens ficam com <b style="color:var(--ink)">preço garantido por 24 meses</b> e
-    podem ser contratados um a um, quando fizerem sentido.
+    Os itens abaixo já estão previstos na arquitetura da plataforma e ficam com
+    <b style="color:var(--ink)">preço garantido por 24 meses</b>. Podem ser contratados um a um,
+    quando a operação justificar.
   </p>
 
   <table class="compacta">
@@ -272,7 +391,7 @@
         <td>Bases de mercado atualizadas todo mês, para orçar sem consultar fornecedor</td>
         <td class="v">R$ 7.000</td></tr>
       <tr><td>Importação de planilhas</td>
-        <td>Traz clientes, insumos, obras e lançamentos das planilhas — suas e de cada assinante</td>
+        <td>Traz clientes, insumos, obras e lançamentos — das suas planilhas e das de cada assinante</td>
         <td class="v">R$ 6.300</td></tr>
       <tr><td>Mapa de contratação</td>
         <td>Fases vermelha, amarela e verde por frente, com o que ainda falta contratar</td>
@@ -296,16 +415,16 @@
         <td>Andamento da obra com a sua marca, pronto para enviar</td>
         <td class="v">R$ 2.800</td></tr>
       <tr><td>Aplicativo para celular</td>
-        <td>Nas lojas da Apple e do Google, com aviso na tela e câmera no diário. Único item sem
-            desconto: envolve contas de desenvolvedor e aprovação nas lojas</td>
+        <td>Nas lojas da Apple e do Google. Único item sem desconto: envolve contas de
+            desenvolvedor e aprovação nas lojas</td>
         <td class="v">R$ 16.000</td></tr>
     </tbody>
   </table>
 
-  <div class="pag">4</div>
+  <div class="pag">6</div>
 </div>
 
-<!-- ============ 5 · MENSAL + PASSOS ============ -->
+<!-- ============ 7 · MENSAL + PASSOS ============ -->
 <div class="pagina">
   <h2><span class="n">06</span>Hospedagem e manutenção</h2>
   <p class="intro">
@@ -330,18 +449,16 @@
     <h3>Quatorze assinantes cobrem o mensal inteiro</h3>
     <p>
       A uma assinatura de R$ 300 por escritório, quatorze assinantes somam R$ 4.200 — mais que o
-      plano mensal. Do décimo quinto em diante a plataforma se paga. É essa relação de prazo, de
-      <b style="color:var(--ink)">24 meses</b>, que sustenta a entrega das trinta e quatro telas
-      sem cobrança e o desconto de 30% sobre as novas.
+      plano mensal. Do décimo quinto em diante, a plataforma se paga e o excedente é seu.
     </p>
   </div>
 
   <div class="nota">
     <h3>Seus dados não saem do Brasil</h3>
     <p>
-      A plataforma roda em servidor dedicado em São Paulo. Além de deixar o sistema mais rápido,
-      isso simplifica a adequação à LGPD: como não há transferência internacional de dados, as
-      exigências adicionais que a lei impõe nesse caso não se aplicam.
+      A plataforma roda em servidor dedicado em São Paulo. Além de deixar o sistema mais rápido
+      para quem usa, isso simplifica a adequação à LGPD: como não há transferência internacional
+      de dados, as exigências adicionais que a lei impõe nesse caso não se aplicam.
     </p>
   </div>
 

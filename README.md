@@ -16,7 +16,7 @@ feitas.
 | `build.sh` | Embrulha o arquivo de trabalho com o `<head>` (meta tags, favicon, prévia de compartilhamento) |
 | `Dockerfile` | Imagem nginx alpine servindo o HTML |
 | `nginx.conf` | Compressão, cabeçalhos de segurança e cache controlado |
-| `proposta-29400-sem-ia.pdf` | A proposta fechada em PDF (5 páginas A4, tema escuro), servida junto do site |
+| `proposta-29400-sem-ia.pdf` | A proposta fechada em PDF (7 páginas A4, tema escuro), servida junto do site |
 | `proposta-29400-sem-ia.html` | Arquivo de trabalho do PDF — folhas A4 explícitas |
 | `build-pdf.sh` | Regenera o PDF e **falha** se alguma folha transbordar |
 | `robots.txt` | Bloqueia indexação por buscadores |
@@ -153,7 +153,7 @@ R$ 29.400, **sem a inteligência artificial**, com o que fica de fora listado e 
 bash build-pdf.sh
 ```
 
-O HTML de origem define cinco folhas A4 explícitas (`.capa` e `.pagina`), então a quebra de
+O HTML de origem define sete folhas A4 explícitas (`.capa` e `.pagina`), então a quebra de
 página é decidida no documento, não pelo navegador. O script confere isso: se o PDF sair com
 mais páginas do que o HTML define, alguma folha transbordou e o build falha em vez de entregar
 um documento desalinhado.
