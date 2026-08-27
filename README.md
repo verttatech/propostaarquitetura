@@ -16,7 +16,7 @@ feitas.
 | `build.sh` | Embrulha o arquivo de trabalho com o `<head>` (meta tags, favicon, prévia de compartilhamento) |
 | `Dockerfile` | Imagem nginx alpine servindo o HTML |
 | `nginx.conf` | Compressão, cabeçalhos de segurança e cache controlado |
-| `proposta-implantacao.pdf` | A proposta fechada: 6 páginas, o escopo de R$ 28.700 à vista |
+| `proposta-implantacao.pdf` | A proposta fechada: 6 páginas, o escopo de R$ 30.000 à vista |
 | `o-que-acrescenta.pdf` | Complemento: 3 páginas com os módulos que podem entrar depois |
 | `*.html` de mesmo nome | Arquivos de trabalho dos PDFs — folhas A4 explícitas |
 | `build-pdf.sh` | Regenera os dois PDFs e **falha** se alguma folha transbordar |
@@ -150,7 +150,7 @@ se você mandar para outra pessoa.
 Além da página interativa, o repositório traz dois documentos fechados, feitos para serem
 enviados juntos:
 
-- **`proposta-implantacao.pdf`** — a proposta: as cinco telas por R$ 28.700 à vista, cada uma
+- **`proposta-implantacao.pdf`** — a proposta: as cinco telas por R$ 30.000 à vista, cada uma
   ligada a uma situação que a cliente contou na reunião, mais a conta aberta de onde vem esse
   valor. **Sem a inteligência artificial.**
 - **`o-que-acrescenta.pdf`** — o catálogo do que pode entrar depois, precificado, com as regras
