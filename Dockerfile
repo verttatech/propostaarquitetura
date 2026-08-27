@@ -7,6 +7,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf   /etc/nginx/conf.d/default.conf
 COPY index.html   /usr/share/nginx/html/index.html
 COPY robots.txt   /usr/share/nginx/html/robots.txt
+COPY proposta-29400-sem-ia.pdf /usr/share/nginx/html/proposta-29400-sem-ia.pdf
 
 EXPOSE 80
 

@@ -16,6 +16,9 @@ feitas.
 | `build.sh` | Embrulha o arquivo de trabalho com o `<head>` (meta tags, favicon, prévia de compartilhamento) |
 | `Dockerfile` | Imagem nginx alpine servindo o HTML |
 | `nginx.conf` | Compressão, cabeçalhos de segurança e cache controlado |
+| `proposta-29400-sem-ia.pdf` | A proposta fechada em PDF (5 páginas A4, tema escuro), servida junto do site |
+| `proposta-29400-sem-ia.html` | Arquivo de trabalho do PDF — folhas A4 explícitas |
+| `build-pdf.sh` | Regenera o PDF e **falha** se alguma folha transbordar |
 | `robots.txt` | Bloqueia indexação por buscadores |
 | `.dockerignore` | Mantém a imagem enxuta |
 
@@ -140,6 +143,22 @@ se você mandar para outra pessoa.
 
 > Os identificadores usados no link são os `data-id` de cada tela. Se você renomear um
 > deles, os links antigos deixam de reconhecer aquela tela — mude só se precisar.
+
+### O PDF da proposta
+
+Além da página interativa, o repositório traz a proposta fechada em PDF: as oito telas de
+R$ 29.400, **sem a inteligência artificial**, com o que fica de fora listado e precificado.
+
+```bash
+bash build-pdf.sh
+```
+
+O HTML de origem define cinco folhas A4 explícitas (`.capa` e `.pagina`), então a quebra de
+página é decidida no documento, não pelo navegador. O script confere isso: se o PDF sair com
+mais páginas do que o HTML define, alguma folha transbordou e o build falha em vez de entregar
+um documento desalinhado.
+
+Depois do deploy, o PDF fica em `https://seu-dominio/proposta-29400-sem-ia.pdf`.
 
 ### Mexer nos preços
 

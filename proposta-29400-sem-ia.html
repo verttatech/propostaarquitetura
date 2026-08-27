@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>TODA — Proposta de implantação</title>
+<style>
+  /* Páginas A4 explícitas: cada .pagina é uma folha física, então a quebra é
+     decidida aqui e não pelo fluxo do navegador. */
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --fundo:#0F1113; --sup:#191C20; --sup2:#22262C;
+    --ink:#F2F0EA; --ink2:#C9C5BC; --muted:#8B867C;
+    --hair:#2C3037; --hair-soft:#23272D;
+    --gold:#D6B461; --gold-forte:#EFDCA6; --gold-tint:#241F12;
+    --ok:#6BC095; --ok-bg:#142A1E;
+    --mono:"SF Mono", Menlo, Consolas, monospace;
+    --sans:-apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html { background:var(--fundo); }          /* propaga para toda a folha, sem borda branca */
+  body { margin:0; background:var(--fundo); color:var(--ink);
+         font-family:var(--sans); font-size:10.2pt; line-height:1.5; }
+
+  .pagina { width:210mm; min-height:297mm; padding:17mm 16mm 14mm;
+            background:var(--fundo); page-break-after:always;
+            display:flex; flex-direction:column; overflow:hidden; }
+  .pagina:last-child { page-break-after:auto; }
+  .cresce { flex:1; }
+
+  .label { font-family:var(--mono); font-size:7pt; letter-spacing:.18em;
+           text-transform:uppercase; color:var(--muted); margin:0; }
+  .num { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  p { margin:0; }
+
+  /* ---------- capa: dourada em qualquer tema, é a marca ---------- */
+  .capa { width:210mm; min-height:297mm; padding:0; page-break-after:always;
+          background:linear-gradient(135deg,#E7D399 0%,#C9A94F 46%,#A8863A 100%);
+          color:#17181A; display:flex; flex-direction:column; }
+  .capa-topo { height:5mm; background:#17181A; }
+  .capa-corpo { flex:1; padding:34mm 18mm 20mm; display:flex; flex-direction:column; }
+  .capa-mark { font-family:var(--mono); font-size:8.5pt; letter-spacing:.3em; font-weight:600; }
+  .wordmark { font-size:66pt; line-height:.84; letter-spacing:-.05em; font-weight:800; margin:8mm 0 0; }
+  .capa-claim { font-size:14pt; line-height:1.34; color:rgba(23,24,26,.7);
+                max-width:20em; margin:6mm 0 0; }
+  .capa-claim b { color:#17181A; font-weight:680; }
+  .capa-meta { display:flex; gap:6mm; border-top:1px solid rgba(23,24,26,.25);
+               padding-top:5mm; margin-top:auto; }
+  .capa-meta div { flex:1; }
+  .capa-meta .label { color:rgba(23,24,26,.6); }
+  .capa-meta strong { font-size:10pt; display:block; margin-top:1.5mm; }
+
+  /* ---------- seções ---------- */
+  h2 { font-size:16pt; line-height:1.15; letter-spacing:-.02em; font-weight:650;
+       margin:0 0 4mm; padding-top:3.5mm; border-top:2px solid var(--gold); color:var(--ink); }
+  h2 .n { font-family:var(--mono); font-size:8.5pt; color:var(--gold); display:block;
+          letter-spacing:.16em; margin-bottom:2mm; font-weight:700; }
+  h3 { font-size:10.5pt; font-weight:650; margin:0; color:var(--ink); }
+  .intro { color:var(--ink2); font-size:11pt; margin-bottom:4mm; }
+  .corpo { color:var(--ink2); font-size:9.8pt; }
+
+  .destaque { background:var(--ok-bg); border-left:3px solid var(--ok); padding:4.5mm 5mm; margin:4mm 0; }
+  .destaque h3 { color:var(--ok); margin-bottom:2mm; }
+  .destaque p { font-size:9.6pt; color:var(--ink2); }
+
+  .nota { background:var(--gold-tint); border-left:3px solid var(--gold); padding:4.5mm 5mm; margin:4mm 0; }
+  .nota h3 { color:var(--gold-forte); margin-bottom:2mm; }
+  .nota p { font-size:9.6pt; color:var(--ink2); }
+
+  /* ---------- escopo ---------- */
+  .item { display:grid; grid-template-columns:40mm 1fr; gap:5mm; padding:3.2mm 0;
+          border-top:1px solid var(--hair-soft); }
+  .item:last-child { border-bottom:1px solid var(--hair-soft); }
+  .item p { font-size:9.5pt; color:var(--ink2); }
+
+  /* ---------- preço ---------- */
+  .faixa { background:#08090B; padding:9mm 10mm; margin:2mm 0 6mm;
+           border-top:3px solid var(--gold); border-bottom:3px solid var(--gold); }
+  .faixa-grid { display:flex; gap:12mm; align-items:flex-end; }
+  .faixa-esq { flex:1; }
+  .riscado { font-family:var(--mono); font-size:9.5pt; color:var(--muted);
+             text-decoration:line-through; display:block; margin:2.5mm 0 1.5mm; }
+  .valor { font-family:var(--mono); font-size:36pt; font-weight:800; letter-spacing:-.04em;
+           line-height:1; font-variant-numeric:tabular-nums; color:var(--ink); }
+  .faixa-nota { font-size:9pt; color:var(--muted); margin-top:3mm; max-width:22em; }
+  .parcelas { flex:1; }
+  .parcela { display:grid; grid-template-columns:9mm 1fr auto; gap:4mm; padding:2.6mm 0;
+             border-bottom:1px solid rgba(255,255,255,.1); font-size:9.5pt; align-items:baseline; }
+  .parcela:first-child { border-top:1px solid rgba(255,255,255,.1); }
+  .parcela .p { font-family:var(--mono); color:var(--gold); font-weight:700; font-size:8.5pt; }
+  .parcela .d { color:var(--muted); }
+  .parcela .v { font-family:var(--mono); font-weight:700; font-variant-numeric:tabular-nums; color:var(--ink); }
+
+  /* ---------- tabelas ---------- */
+  table { border-collapse:collapse; width:100%; margin-top:2mm; }
+  th { font-family:var(--mono); font-size:7pt; letter-spacing:.14em; text-transform:uppercase;
+       color:var(--muted); font-weight:600; text-align:left; padding:0 4mm 2.5mm 0;
+       border-bottom:1.2px solid var(--gold); }
+  td { padding:2.7mm 4mm 2.7mm 0; border-bottom:1px solid var(--hair-soft);
+       font-size:9.4pt; color:var(--ink2); vertical-align:top; }
+  td:first-child { color:var(--ink); font-weight:600; }
+  th:last-child, td:last-child { text-align:right; padding-right:0; }
+  td.v { font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--ink); font-weight:700; }
+
+  /* ---------- blocos horizontais ---------- */
+  table.compacta td { padding:1.9mm 4mm 1.9mm 0; font-size:9pt; line-height:1.42; }
+  table.compacta th { padding-bottom:2mm; }
+
+  .faixas4 { display:flex; gap:1px; background:var(--hair); border:1px solid var(--hair); margin-top:2mm; }
+  .bloco { background:var(--sup); padding:4.5mm; flex:1; }
+  .bloco .s { font-family:var(--mono); font-size:7.5pt; letter-spacing:.1em; color:var(--gold);
+              text-transform:uppercase; display:block; margin-bottom:2mm; }
+  .bloco h3 { font-size:9.6pt; margin-bottom:1.5mm; }
+  .bloco p { font-size:8.6pt; color:var(--muted); line-height:1.45; }
+
+  footer { border-top:1px solid var(--hair); padding-top:5mm; margin-top:auto;
+           display:flex; justify-content:space-between; align-items:flex-end; }
+  .rod-marca { font-size:17pt; font-weight:800; letter-spacing:-.04em; line-height:1; color:var(--ink); }
+  .rod-by { font-family:var(--mono); font-size:7.5pt; letter-spacing:.22em; color:var(--gold);
+            display:block; margin-bottom:1.5mm; }
+  .rod-meta { font-size:8.5pt; color:var(--muted); text-align:right; line-height:1.5; }
+  .pag { font-family:var(--mono); font-size:7.5pt; color:var(--muted); text-align:right;
+         margin-top:auto; padding-top:5mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · CAPA ============ -->
+<div class="capa">
+  <div class="capa-topo"></div>
+  <div class="capa-corpo">
+    <span class="capa-mark">verttatech</span>
+    <div class="wordmark">TODA</div>
+    <p class="capa-claim">
+      A plataforma completa de gestão do escritório, da obra e do cliente — implantada por
+      <b>R$ 29.400</b>.
+    </p>
+    <div class="capa-meta">
+      <div><span class="label">Preparado para</span><strong>Todaka</strong></div>
+      <div><span class="label">Documento</span><strong>Proposta de implantação</strong></div>
+      <div><span class="label">Data</span><strong class="num">Agosto de 2026</strong></div>
+      <div><span class="label">Validade</span><strong class="num">30 dias</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2 · O QUE JÁ ESTÁ PRONTO ============ -->
+<div class="pagina">
+  <h2><span class="n">01</span>O que já está pronto não entra na conta</h2>
+  <p class="intro">
+    Trinta e quatro telas da plataforma já estão construídas e vão junto, sem cobrança.
+  </p>
+
+  <div class="destaque">
+    <h3>Incluído sem custo · valor de tabela R$ 76.000</h3>
+    <p>
+      Toda a gestão do escritório — clientes, projetos e obras, cronograma, tarefas, orçamento
+      com biblioteca de insumos, diário de obra com fotos, medições, financeiro com margem por
+      obra, compras e funil de vendas. Mais as nove abas de cada obra e o <b>portal do cliente
+      completo</b>, com a sua marca: progresso, cronograma, diário, galeria de fotos, parcelas,
+      aprovações, documentos e conversa.
+    </p>
+  </div>
+
+  <p class="corpo">
+    Você paga apenas pelo que ainda vai ser construído, e com <b style="color:var(--ink)">30% de
+    desconto</b>. As oito telas da próxima página são as que fazem a plataforma gerar receita e
+    as que resolvem o que conversamos na reunião.
+  </p>
+
+  <div style="margin-top:8mm">
+    <h2 style="border-top-color:var(--hair)"><span class="n">02</span>O que será entregue</h2>
+    <div class="item"><h3>Página de venda</h3>
+      <p>O produto por dentro, com os planos e o preço à mostra, e a compra concluída na própria
+         página — sem formulário de convite nem espera por vendedor.</p></div>
+    <div class="item"><h3>Criar meu escritório</h3>
+      <p>O arquiteto assina e já entra usando, com o espaço dele criado sozinho e exemplos
+         prontos para a plataforma não abrir vazia.</p></div>
+    <div class="item"><h3>Minha assinatura</h3>
+      <p>Plano atual, próxima cobrança, forma de pagamento e notas fiscais, com troca de plano e
+         cancelamento pelo próprio assinante.</p></div>
+    <div class="item"><h3>Painel de assinantes</h3>
+      <p>Todos os escritórios assinantes, plano, situação de pagamento e a receita recorrente do
+         mês. É a tela do seu negócio.</p></div>
+    <div class="item"><h3>Aviso e bloqueio</h3>
+      <p>Cobrança automática, aviso antes do vencimento e corte de quem não paga — com os dados
+         preservados para quando regularizar.</p></div>
+  </div>
+
+  <div class="pag">2</div>
+</div>
+
+<!-- ============ 3 · RESTO DO ESCOPO + PREÇO ============ -->
+<div class="pagina">
+  <h2><span class="n">02</span>O que será entregue <span style="font-size:9pt;font-weight:400;color:var(--muted)">· continuação</span></h2>
+
+  <div class="item"><h3>Contrato automático</h3>
+    <p>Gerado com os dados do cliente a partir do seu modelo, enviado por link para assinatura e
+       voltando assinado para os arquivos da obra. Substitui o caminho de hoje: abrir o Word,
+       exportar PDF, subir no site de assinatura, mandar e-mail e baixar de volta.</p></div>
+  <div class="item"><h3>Agenda da obra</h3>
+    <p>Medições, visitas e entregas em calendário, com responsável, espelhadas na agenda do
+       Google e avisando quando dois compromissos se chocam.</p></div>
+  <div class="item"><h3>Onde foi comprado</h3>
+    <p>O fornecedor de cada item da obra, com contato, valor e garantia, consultável pelo cliente
+       anos depois da entrega.</p></div>
+  <div class="item"><h3>Implantação</h3>
+    <p>Identidade visual aplicada, migração dos dados atuais, treinamento da equipe em duas
+       sessões e acompanhamento no primeiro mês de uso.</p></div>
+
+  <div class="faixa" style="margin-top:8mm">
+    <div class="faixa-grid">
+      <div class="faixa-esq">
+        <span class="label">03 · Investimento de implantação</span>
+        <span class="riscado">R$ 42.000 sem o desconto</span>
+        <div class="valor">R$ 29.400</div>
+        <p class="faixa-nota">As oito telas acima, com a plataforma pronta incluída e a equipe treinada.</p>
+      </div>
+      <div class="parcelas">
+        <div class="parcela"><span class="p">30%</span><span class="d">No aceite da proposta</span><span class="v">R$ 8.820</span></div>
+        <div class="parcela"><span class="p">40%</span><span class="d">Na entrada em operação</span><span class="v">R$ 11.760</span></div>
+        <div class="parcela"><span class="p">30%</span><span class="d">Após 30 dias de uso</span><span class="v">R$ 8.820</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2><span class="n">04</span>Seis semanas até estar vendendo</h2>
+  <div class="faixas4">
+    <div class="bloco"><span class="s">Semana 1</span><h3>Descoberta</h3>
+      <p>Ajuste do processo e coleta da identidade visual e dos dados.</p></div>
+    <div class="bloco"><span class="s">Semanas 2–4</span><h3>Construção</h3>
+      <p>As oito telas novas, com demonstração a cada quinze dias.</p></div>
+    <div class="bloco"><span class="s">Semanas 5–6</span><h3>Implantação</h3>
+      <p>Marca aplicada, dados migrados, treinamento e operação.</p></div>
+    <div class="bloco"><span class="s">Mês seguinte</span><h3>Acompanhamento</h3>
+      <p>Ajustes com base no uso e correção sem custo.</p></div>
+  </div>
+
+  <div class="pag">3</div>
+</div>
+
+<!-- ============ 4 · O QUE NÃO ESTÁ INCLUÍDO ============ -->
+<div class="pagina">
+  <h2><span class="n">05</span>O que não está incluído</h2>
+
+  <div class="nota" style="margin-top:0">
+    <h3>A inteligência artificial fica de fora desta proposta</h3>
+    <p>
+      O assistente que monta orçamento a partir de uma descrição, escreve o diário pelas fotos e
+      responde sobre os seus dados <b style="color:var(--ink)">não integra este escopo</b>. É o
+      item de maior custo e o único que consome serviço por uso, com mensalidade própria. Pode
+      ser contratado a qualquer momento, sem refazer nada do que for construído agora.
+    </p>
+  </div>
+
+  <p class="corpo" style="margin-bottom:3mm">
+    Os demais itens ficam com <b style="color:var(--ink)">preço garantido por 24 meses</b> e
+    podem ser contratados um a um, quando fizerem sentido.
+  </p>
+
+  <table class="compacta">
+    <thead><tr><th>Item</th><th>O que acrescenta</th><th>Valor</th></tr></thead>
+    <tbody>
+      <tr><td>Assistente de IA</td>
+        <td>Orçamento por descrição, diário escrito pelas fotos, respostas sobre os seus dados</td>
+        <td class="v">R$ 8.400</td></tr>
+      <tr><td>Avisos automáticos</td>
+        <td>WhatsApp e e-mail a cada etapa concluída, vencimento e pendência do cliente</td>
+        <td class="v">R$ 8.400</td></tr>
+      <tr><td>Tabelas oficiais de custo</td>
+        <td>Bases de mercado atualizadas todo mês, para orçar sem consultar fornecedor</td>
+        <td class="v">R$ 7.000</td></tr>
+      <tr><td>Importação de planilhas</td>
+        <td>Traz clientes, insumos, obras e lançamentos das planilhas — suas e de cada assinante</td>
+        <td class="v">R$ 6.300</td></tr>
+      <tr><td>Mapa de contratação</td>
+        <td>Fases vermelha, amarela e verde por frente, com o que ainda falta contratar</td>
+        <td class="v">R$ 6.300</td></tr>
+      <tr><td>Modelos prontos</td>
+        <td>Briefing, contrato e etapas de projeto para quem está começando</td>
+        <td class="v">R$ 5.600</td></tr>
+      <tr><td>Relatórios em Excel</td>
+        <td>Qualquer lista ou relatório exportado em planilha formatada</td>
+        <td class="v">R$ 4.900</td></tr>
+      <tr><td>Orçamento de honorários</td>
+        <td>Preço do seu projeto por metro quadrado, com os custos do escritório embutidos</td>
+        <td class="v">R$ 4.900</td></tr>
+      <tr><td>Minhas tarefas</td>
+        <td>Cada pessoa da equipe enxerga só o que é dela, de todas as obras</td>
+        <td class="v">R$ 3.500</td></tr>
+      <tr><td>Mapa das obras</td>
+        <td>Endereços plotados, para agrupar as visitas do dia</td>
+        <td class="v">R$ 3.500</td></tr>
+      <tr><td>Relatório em PDF</td>
+        <td>Andamento da obra com a sua marca, pronto para enviar</td>
+        <td class="v">R$ 2.800</td></tr>
+      <tr><td>Aplicativo para celular</td>
+        <td>Nas lojas da Apple e do Google, com aviso na tela e câmera no diário. Único item sem
+            desconto: envolve contas de desenvolvedor e aprovação nas lojas</td>
+        <td class="v">R$ 16.000</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pag">4</div>
+</div>
+
+<!-- ============ 5 · MENSAL + PASSOS ============ -->
+<div class="pagina">
+  <h2><span class="n">06</span>Hospedagem e manutenção</h2>
+  <p class="intro">
+    Depois da entrega, a plataforma precisa de servidor, backup, monitoramento e suporte.
+  </p>
+
+  <table>
+    <thead><tr><th>Item</th><th>O que inclui</th><th>Por mês</th></tr></thead>
+    <tbody>
+      <tr><td>Plataforma</td>
+        <td>Servidor dedicado em São Paulo, backup diário, certificado de segurança,
+            monitoramento, correção de falhas, suporte e evolução do sistema</td>
+        <td class="v">R$ 4.190</td></tr>
+      <tr><td>Parceria</td>
+        <td>Por escritório assinante ativo, a partir do vigésimo primeiro. Os vinte primeiros
+            são livres</td>
+        <td class="v">R$ 40</td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota">
+    <h3>Quatorze assinantes cobrem o mensal inteiro</h3>
+    <p>
+      A uma assinatura de R$ 300 por escritório, quatorze assinantes somam R$ 4.200 — mais que o
+      plano mensal. Do décimo quinto em diante a plataforma se paga. É essa relação de prazo, de
+      <b style="color:var(--ink)">24 meses</b>, que sustenta a entrega das trinta e quatro telas
+      sem cobrança e o desconto de 30% sobre as novas.
+    </p>
+  </div>
+
+  <div class="nota">
+    <h3>Seus dados não saem do Brasil</h3>
+    <p>
+      A plataforma roda em servidor dedicado em São Paulo. Além de deixar o sistema mais rápido,
+      isso simplifica a adequação à LGPD: como não há transferência internacional de dados, as
+      exigências adicionais que a lei impõe nesse caso não se aplicam.
+    </p>
+  </div>
+
+  <h2 style="margin-top:6mm"><span class="n">07</span>Próximos passos</h2>
+  <div class="faixas4">
+    <div class="bloco"><span class="s">01</span><p>Demonstração da plataforma rodando, com o sistema na tela.</p></div>
+    <div class="bloco"><span class="s">02</span><p>Aceite desta proposta e formalização do contrato.</p></div>
+    <div class="bloco"><span class="s">03</span><p>Coleta da identidade visual e dos dados a migrar.</p></div>
+    <div class="bloco"><span class="s">04</span><p>Seis semanas até operar e poder vender.</p></div>
+  </div>
+
+  <p class="corpo" style="margin-top:5mm">
+    Esta proposta é válida por 30 dias. Qualquer ponto do escopo pode ser revisto antes do aceite
+    — se algo aqui não corresponde ao que a Todaka precisa, é melhor descobrir agora do que na
+    entrega.
+  </p>
+
+  <footer>
+    <div>
+      <span class="rod-by">verttatech</span>
+      <span class="rod-marca">TODA</span>
+    </div>
+    <div class="rod-meta">
+      Proposta de implantação · Agosto de 2026<br>
+      Preços garantidos por 24 meses
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
