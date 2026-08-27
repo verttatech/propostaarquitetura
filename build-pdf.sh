@@ -26,7 +26,8 @@ for D in "${DOCS[@]}"; do
 import re
 d=open('$DESTINO','rb').read()
 print(len(re.findall(rb'/Type\s*/Page[^s]', d)))")
-  ESPERADO=$(grep -c 'class="pagina"\|class="capa"' "$ORIGEM")
+  # aceita class="pagina densa" e afins, não só a classe sozinha
+  ESPERADO=$(grep -cE 'class="(pagina|capa)[" ]' "$ORIGEM")
 
   printf "%-26s %s, %s páginas" "$D.pdf" "$(du -h "$DESTINO" | cut -f1)" "$PAGINAS"
   if [ "$PAGINAS" != "$ESPERADO" ]; then
