@@ -10,7 +10,7 @@ RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 [ -x "$CHROME" ] || { echo "erro: Google Chrome não encontrado em $CHROME"; exit 1; }
 
-DOCS=(proposta-29400-sem-ia o-que-acrescenta)
+DOCS=(proposta-implantacao o-que-acrescenta)
 FALHOU=0
 
 for D in "${DOCS[@]}"; do
